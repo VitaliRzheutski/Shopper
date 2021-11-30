@@ -20,7 +20,7 @@ export class AllCampuses extends React.Component {
           {products.map((product) => {
             console.log('product:', product);
             return (
-              <div className="singleProduct" >
+              <div className="singleProduct" key={product.id} >
                 <p>ProductName: {product.productName}</p>
                 <p>Description:{product.description}</p>
                 <p>---------------------</p>
