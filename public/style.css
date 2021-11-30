@@ -31,3 +31,6 @@ main {
   flex-direction: column;
   justify-content: center;
 }
+.singleProduct{
+  border: 1px solid red;
+}

@@ -30,6 +30,9 @@ Order.belongsToMany(Product, {
     unique: false
   }
 })
+// db.sync({
+//   force: true
+// });
 
 module.exports = {
   // Include your models in this exports object as well!

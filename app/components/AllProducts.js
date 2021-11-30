@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchProductsThunk } from "../redux/products";
+import { Link } from "react-router-dom";
 
-// Notice that we're exporting the AllCampuses component twice. The named export
-// (below) is not connected to Redux, while the default export (at the very
-// bottom) is connected to Redux. Our tests should cover _both_ cases.
+
 export class AllCampuses extends React.Component {
   componentDidMount() {
     this.props.loadProducts()
@@ -16,15 +15,17 @@ export class AllCampuses extends React.Component {
         <main>
           <h1>Welcome to view all Products:</h1>
         </main>
-        <div className="container">
+        <div className="container" >
           {products.map((product) => {
-            console.log('product:', product);
+            // console.log('product:', product);
             return (
-              <div className="singleProduct" key={product.id} >
-                <p>ProductName: {product.productName}</p>
-                <p>Description:{product.description}</p>
-                <p>---------------------</p>
-              </div>
+              <Link to={`/products/${product.id}`} key={product.id} >
+                <div className="singleProduct" key={product.id} >
+                  <p>ProductName: {product.productName}</p>
+                  <p>Description:{product.description}</p>
+                  <p>---------------------------------</p>
+                </div>
+              </Link>
             )
 
           })}

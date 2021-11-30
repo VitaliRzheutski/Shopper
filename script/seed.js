@@ -50,7 +50,7 @@ async function seed() {
       productName: 'Iphone',
       description: 'Apple Iphone 13 Pro Max',
       imageUrl:
-        'https://www.sgvtribune.com/wp-content/uploads/2019/03/iStock-999985068-1.jpg',
+        'https://img.xfinitymobile.com/image/fetch/e_trim/w_420,h_420,c_fit,f_auto,q_auto,fl_lossy/https%3A%2F%2Fimg.xfinitymobile.com%2Fimage%2Fupload%2Fv1632144927%2Fclient%2Fcatalog%2Fdevices%2Fapple%2FiPhone_13_Pro_Max_Silver_PRI.png',
       price: 1200,
       quantity: 1000
     },
@@ -58,15 +58,15 @@ async function seed() {
       productName: 'Iphone',
       description: 'Apple Iphone 13 Pro',
       imageUrl:
-        'https://www.sgvtribune.com/wp-content/uploads/2019/03/iStock-999985068-1.jpg',
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1631652954000',
       price: 1100,
       quantity: 4000
     },
     {
       productName: 'MacBook Pro',
-      description: 'Apple IMacBook Pro',
+      description: 'Apple MacBook Pro',
       imageUrl:
-        'https://www.sgvtribune.com/wp-content/uploads/2019/03/iStock-999985068-1.jpg',
+        'https://m.media-amazon.com/images/I/71gD8WdSlaL._AC_SL1500_.jpg',
       price: 1300,
       quantity: 500
     }
