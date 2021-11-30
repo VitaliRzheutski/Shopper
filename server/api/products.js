@@ -11,6 +11,7 @@ router.get('/',async(req,res,next)=>{
         next(error)
     }
 })
+
 //get single ptoduct
 router.get('/:id',async(req,res,next)=>{
     try{
@@ -26,12 +27,25 @@ router.post('/',async(req,res,next)=>{
         console.log('req.body',req.body)
         const newProduct = await Product.create(req.body)
         // console.log('newProduct:',newProduct)
-        res.json(newProduct)
+        res.sendStatus(201).json(newProduct)
     }catch(error){
         next(error)
     }
 })
 
+router.put("/:id",async(req,res,next)=>{
+    try{
+        const updateProduct = await Product.update(req.body,{
+            where:{
+                id:req.params.id
+            }
+        })
+        if(!updateProduct) res.sendStatus(404);
+        res.sendStatus(200)
+    }catch(error){
+        next(error)
+    }
+})
 
 
 module.exports = router
