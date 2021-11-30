@@ -50,5 +50,6 @@ const mapDispatch = (dispatch) => {
     loadProducts: () => dispatch(fetchProductsThunk())
   };
 };
+// console.log("H")
 
 export default connect(mapState, mapDispatch)(AllCampuses);
