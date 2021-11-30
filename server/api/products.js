@@ -32,7 +32,7 @@ router.post('/',async(req,res,next)=>{
         next(error)
     }
 })
-
+//update product
 router.put("/:id",async(req,res,next)=>{
     try{
         const updateProduct = await Product.update(req.body,{
@@ -42,6 +42,20 @@ router.put("/:id",async(req,res,next)=>{
         })
         if(!updateProduct) res.sendStatus(404);
         res.sendStatus(200)
+    }catch(error){
+        next(error)
+    }
+})
+//delete product
+router.delete("/:id",async(req,res,next)=>{
+    try{
+        const deleteProduct = await Product.destroy({
+            where:{
+                id:req.params.id,
+            }
+        });
+        if(!deleteProduct) res.sendStatus(404)
+        else res.sendStatus(204)
     }catch(error){
         next(error)
     }
