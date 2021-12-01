@@ -14,7 +14,7 @@ export const fetchSingleCampus = (id) =>{
     return async(dispatch) =>{
         try{
             const {data} = await axios.get(`/api/products/${id}/`)
-            console.log('data from fetchSinglecapmus')
+            // console.log('data from fetchSinglecapmus',data)
             dispatch(getSingleProduct(data))
         }catch(error){
             console.log(error)
