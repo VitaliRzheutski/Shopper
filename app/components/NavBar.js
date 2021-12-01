@@ -11,6 +11,7 @@ const Navbar = () => {
         <p className="section-title">View all products</p>
       </Link>
       
+      
     </div>
   );
 };

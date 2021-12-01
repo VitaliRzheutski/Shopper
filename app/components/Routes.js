@@ -5,6 +5,7 @@ import AllProducts from "./AllProducts";
 import SingleProduct from "./SingleProduct";
 import HomePage from "./HomePage";
 import Navbar from "./NavBar";
+import AddProduct from "./AddProduct";
 
 const Routes = () => {
   return (
@@ -14,9 +15,10 @@ const Routes = () => {
           {" "}
           <Navbar />
         </nav>
-        <Route exact path="/" component={HomePage} />
+        <Route  path="/" component={HomePage} />
         <Route  exact path="/products" component={AllProducts} />
         <Route  path="/products/:productId" component={SingleProduct} />
+        <Route  exact path="/products" component={AddProduct} />
       </div>
     </Router>
   );

@@ -7,7 +7,7 @@ class SingleProduct extends React.Component {
         this.props.loadSingleProduct(this.props.match.params.productId)
     }
     render() {
-        // console.log('singleProd:', this.props.singleProduct)
+        console.log('singleProd:', this.props.singleProduct)
         const singleProduct = this.props.singleProduct
         return (
 
@@ -18,7 +18,7 @@ class SingleProduct extends React.Component {
                 </main>
 
                 <img src={singleProduct.imageUrl} />
-                <div className="container">
+                <div className="container" product={singleProduct.id} >
                     <h4>Product:{singleProduct.productName}</h4>
                     <p>Price:{singleProduct.price}</p>
                     <p>Description:{singleProduct.description}</p>
