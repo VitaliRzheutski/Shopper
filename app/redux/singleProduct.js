@@ -9,7 +9,7 @@ export const getSingleProduct = (product) =>{
     }
 }
 
-export const fetchSingleCampus = (id) =>{
+export const fetchSingleProduct = (id) =>{
     //thunk
     return async(dispatch) =>{
         try{

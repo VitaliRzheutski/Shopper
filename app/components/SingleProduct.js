@@ -1,24 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchSingleCampus } from "../redux/singleProduct";
+import { fetchSingleProduct } from "../redux/singleProduct";
 
 class SingleProduct extends React.Component {
     componentDidMount() {
         this.props.loadSingleProduct(this.props.match.params.productId)
     }
     render() {
-        console.log('singleProd:', this.props.singleProduct)
+        console.log('props form singleProduct:', this.props)
         const singleProduct = this.props.singleProduct
         return (
 
-            <div>
+            <div >
                 <div>Single Products</div>
                 <main>
                     <h1>Product</h1>
                 </main>
 
                 <img src={singleProduct.imageUrl} />
-                <div className="container" product={singleProduct.id} >
+                <div className="container"  >
                     <h4>Product:{singleProduct.productName}</h4>
                     <p>Price:{singleProduct.price}</p>
                     <p>Description:{singleProduct.description}</p>
@@ -38,7 +38,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadSingleProduct: (id) => dispatch(fetchSingleCampus(id))
+        loadSingleProduct: (id) => dispatch(fetchSingleProduct(id))
     }
 }
 

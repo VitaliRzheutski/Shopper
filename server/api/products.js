@@ -1,12 +1,11 @@
 const router = require('express').Router()
-const { route } = require('.');
 const Product = require('../db/product');
 
 //get all products
 router.get('/',async(req,res,next)=>{
     try{
     const products =  await Product.findAll()
-    res.json(products)
+    res.send(products)
     }catch(error){
         next(error)
     }
@@ -24,7 +23,7 @@ router.get('/:id',async(req,res,next)=>{
 //create single product
 router.post('/',async(req,res,next)=>{
     try{
-        console.log('req.body',req.body)
+        // console.log('req.body',req.body)
         const newProduct = await Product.create(req.body)
         // console.log('newProduct:',newProduct)
         res.sendStatus(201).json(newProduct)

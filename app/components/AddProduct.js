@@ -90,4 +90,4 @@ const mapDispatch  = (dispatch) =>{
         addNewProduct:(product) => dispatch(addProductThunk(product))
     }
 }
-export default connect(mapState,mapDispatch)(AddProduct)
+export default connect(null,null)(AddProduct)

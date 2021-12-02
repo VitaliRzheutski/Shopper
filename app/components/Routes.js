@@ -15,10 +15,10 @@ const Routes = () => {
           {" "}
           <Navbar />
         </nav>
-        <Route  path="/" component={HomePage} />
+        <Route exact path="/" component={HomePage} />
         <Route  exact path="/products" component={AllProducts} />
         <Route  path="/products/:productId" component={SingleProduct} />
-        <Route  exact path="/products" component={AddProduct} />
+        {/* <Route  exact path="/products" component={AddProduct} /> */}
       </div>
     </Router>
   );
