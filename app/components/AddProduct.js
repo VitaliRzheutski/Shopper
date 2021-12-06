@@ -15,7 +15,6 @@ import {addProductThunk } from "../redux/products";
         this.handleChange = this.handleChange.bind(this);
 
         console.log("this.props from AddProduct:", this.props);
-        console.log('this.state:',this.state)
     }
     handleSubmit(event) {
         event.preventDefault();
@@ -80,14 +79,14 @@ import {addProductThunk } from "../redux/products";
       }
     }
 
-const mapState = (state)=>{
-    return{
-        products:state.products
-    }
-}
-const mapDispatch  = (dispatch) =>{
-    return{
-        addNewProduct:(product) => dispatch(addProductThunk(product))
-    }
-}
+// const mapState = (state)=>{
+//     return{
+//         products:state.products
+//     }
+// }
+// const mapDispatch  = (dispatch) =>{
+//     return{
+//         addNewProduct:(product) => dispatch(addProductThunk(product))
+//     }
+// }
 export default connect(null,null)(AddProduct)

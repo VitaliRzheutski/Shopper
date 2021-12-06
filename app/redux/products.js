@@ -2,7 +2,8 @@ import axios from 'axios'
 
 //action type
 const GET_PRODUCTS = 'GET_PRODUCTS';
-const ADD_PRODUCT = 'ADD_PRODUCT'
+const ADD_PRODUCT = 'ADD_PRODUCT';
+const DELETE_PRODUCT = 'DELETE_PRODUCT'
 
 //ation creator
 export const getProducts = (products) =>{
@@ -15,6 +16,12 @@ export const addProduct = (product) =>{
     return{
         type:ADD_PRODUCT,
         product
+    }
+}
+export const deleteProduct = (id) =>{
+    return{
+        type:DELETE_PRODUCT,
+        id
     }
 }
 
@@ -41,6 +48,17 @@ export const addProductThunk = (product) =>{
         }
     }
 }
+export const deleteProductThunk = (id) =>{
+    return async(dispatch)=>{
+        try{
+            await axios.delete(`/api/products/${id}`)
+            dispatch(deleteProduct(id))
+        }catch(error){
+            console.log(error)
+        }
+    }
+}
+
 const initialState = [];
 
 //reducer
@@ -50,6 +68,8 @@ export default function productsReducer(state = initialState,action){
             return action.products
         case ADD_PRODUCT:
             return [...state,action.product]
+        case DELETE_PRODUCT:
+            return state.filter((product)=>product.id !== action.id)
     default:
         return state
     }

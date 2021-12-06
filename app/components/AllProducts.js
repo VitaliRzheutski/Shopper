@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchProductsThunk } from "../redux/products";
+import { fetchProductsThunk,deleteProductThunk } from "../redux/products";
 import { Link } from "react-router-dom";
 import AddProduct from "./AddProduct";
 import { addProductThunk } from "../redux/products";
@@ -12,7 +12,8 @@ export class AllProducts extends React.Component {
   }
   render() {
     const products = this.props.products;
-    console.log('products:', products)
+    // console.log('products:', products)
+    console.log('this.props:',this.props)
     return (
       <div>
         <main>
@@ -21,7 +22,7 @@ export class AllProducts extends React.Component {
 
         <div>
           <AddProduct
-            products={this.props.products}
+            // products={this.props.products}
             addNewProduct={this.props.addNewProduct} />
         </div>
 
@@ -40,6 +41,14 @@ export class AllProducts extends React.Component {
 
 
               </Link>
+              <button
+                    type="button"
+                    className="button btn btn-danger"
+                    onClick={() => this.props.deleteProduct(product.id)}
+                  >
+                    DELETE
+                  </button>
+
             </div>
 
 
@@ -64,7 +73,8 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     loadProducts: () => dispatch(fetchProductsThunk()),
-    addNewProduct: (product) => dispatch(addProductThunk(product))
+    addNewProduct: (product) => dispatch(addProductThunk(product)),
+    deleteProduct:(id) =>dispatch(deleteProductThunk(id))
   };
 };
 

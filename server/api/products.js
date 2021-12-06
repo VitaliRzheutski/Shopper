@@ -26,7 +26,7 @@ router.post('/',async(req,res,next)=>{
         // console.log('req.body',req.body)
         const newProduct = await Product.create(req.body)
         // console.log('newProduct:',newProduct)
-        res.sendStatus(201).json(newProduct)
+        res.json(newProduct)
     }catch(error){
         next(error)
     }
