@@ -1,6 +1,7 @@
 import axios from 'axios';
 //action type
-const GET_SINGLE_PRODUCT = 'GET_SINGLE_PRODUCT'
+const GET_SINGLE_PRODUCT = 'GET_SINGLE_PRODUCT';
+
 //action creator
 export const getSingleProduct = (product) =>{
     return{

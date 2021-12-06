@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchSingleProduct } from "../redux/singleProduct";
-
+import { Link } from "react-router-dom";
 class SingleProduct extends React.Component {
     componentDidMount() {
         this.props.loadSingleProduct(this.props.match.params.productId)
@@ -26,7 +26,15 @@ class SingleProduct extends React.Component {
 
 
                 </div>
-
+                <Link to={`/products/${singleProduct.id}/updateProduct`} className="link">
+          <button
+            type="button"
+            className="updateStudent"
+          
+          >
+            Edit campus
+          </button>
+        </Link>
             </div>
         )
     }
