@@ -14,7 +14,7 @@ import {addProductThunk } from "../redux/products";
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
 
-        console.log("this.props from AddProduct:", this.props);
+        // console.log("this.props from AddProduct:", this.props);
     }
     handleSubmit(event) {
         event.preventDefault();
@@ -37,29 +37,26 @@ import {addProductThunk } from "../redux/products";
     render() {
         // console.log("this.props from ADDCAMPUS:", this.props);
         return (
-          <div id="container">
-            <div id="navbar">Create new Product:</div>
+          <div id="container1">
+            
             <form onSubmit={this.handleSubmit}>
-              <label htmlFor="productName">Name:</label>
+            <div id="navbar">Create new Product:</div>
+              <label className="form-label" >Name:</label>
               <input
                 type="text"
                 name="productName"
+                id="form5Example1" className="form-control"
                 value={this.state.productName}
                 onChange={this.handleChange}
               />
     
-              <label htmlFor="description">Description:</label>
-              <input
-                type="text"
-                name="description"
-                value={this.state.description}
-                onChange={this.handleChange}
-              />
+              
 
               <label htmlFor="price">Price:</label>
               <input
                 type="text"
                 name="price"
+                 className="form-control"
                 value={this.state.price}
                 onChange={this.handleChange}
               />
@@ -68,25 +65,26 @@ import {addProductThunk } from "../redux/products";
               <input
                 type="text"
                 name="quantity"
+                 className="form-control"
                 value={this.state.quantity}
                 onChange={this.handleChange}
               />
+
+              <label htmlFor="description">Description:</label>
+              <input
+                type="text"
+                name="description"
+               className="form-control mb-4 "
+                value={this.state.description}
+                onChange={this.handleChange}
+              />
     
-              <button type="submit">Create</button>
+              <button type="submit" id="createBtn" className="btn btn-primary btn-block ">Create product</button>
             </form>
           </div>
         );
       }
     }
 
-// const mapState = (state)=>{
-//     return{
-//         products:state.products
-//     }
-// }
-// const mapDispatch  = (dispatch) =>{
-//     return{
-//         addNewProduct:(product) => dispatch(addProductThunk(product))
-//     }
-// }
+
 export default connect(null,null)(AddProduct)

@@ -7,7 +7,7 @@ class SingleProduct extends React.Component {
         this.props.loadSingleProduct(this.props.match.params.productId)
     }
     render() {
-        console.log('props form singleProduct:', this.props)
+        // console.log('props form singleProduct:', this.props)
         const singleProduct = this.props.singleProduct
         return (
 
