@@ -37,7 +37,7 @@ class SingleProduct extends React.Component {
             // </Link>
             //     </div>
 
-            <div>
+            <div className="singleProd">
 
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                 <div id="container">
@@ -73,10 +73,11 @@ class SingleProduct extends React.Component {
                     <div className="product-image">
 
                         <img src={singleProduct.imageUrl} alt="" />
-
-
                     </div>
-                    <Link to={`/products/${singleProduct.id}/updateProduct`} className="link">
+
+
+                </div>
+                <Link to={`/products/${singleProduct.id}/updateProduct`} className="link">
               <button
                 type="button"
                 className="updateStudent"
@@ -85,8 +86,6 @@ class SingleProduct extends React.Component {
                 Edit product
               </button>
              </Link>
-
-                </div>
             </div>
 
 
