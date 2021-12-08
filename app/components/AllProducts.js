@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchProductsThunk,deleteProductThunk } from "../redux/products";
+import { fetchProductsThunk, deleteProductThunk } from "../redux/products";
 import { Link } from "react-router-dom";
 import AddProduct from "./AddProduct";
 import { addProductThunk } from "../redux/products";
@@ -22,25 +22,22 @@ export class AllProducts extends React.Component {
 
         <div>
           <AddProduct
-            // products={this.props.products}
             addNewProduct={this.props.addNewProduct} />
         </div>
 
 
 
-        <div className='container' >
+        <div className='allCards' >
           {products.map((product) => (
 
-            <div className="" key={product.id}>
+            <div className="singleCard" key={product.id}>
               <Link to={`/products/${product.id}`}  key={product.id} >
-
-
+              <img src={product.imageUrl} className="img-fluid rounded-start" alt="..." />
                 <p>ProductName: {product.productName}</p>
-                <p>Description:{product.description}</p>
+                <p>Price:{product.price}</p>
                 <p>---------------------------------</p>
-
-
               </Link>
+
               <button
                     type="button"
                     className="button btn btn-danger"
@@ -54,7 +51,36 @@ export class AllProducts extends React.Component {
 
           ))}
 
-        </div>
+        </div> 
+
+
+        {/* <div className="card mb-3" >
+          {products.map((product) => (
+            <div className="row g-0" id="card" key={product.id}>
+              <Link to={`/products/${product.id}`}  key={product.id} >
+              <div className="col-md-4">
+                <img src={product.imageUrl} className="img-fluid rounded-start" alt="..." />
+              </div>
+              <div className="col-md-8">
+                <div className="card-body">
+                  <h5 className="card-title">{product.productName}</h5>
+                  <p className="card-text">{product.description}</p>
+                </div>
+              </div>
+              </Link>
+              <button
+                    type="button"
+                    className="button btn btn-danger"
+                    onClick={() => this.props.deleteProduct(product.id)}
+                  >
+                    DELETE
+                  </button>
+
+
+            </div>
+          ))}
+
+        </div> */}
 
       </div>
 
@@ -74,7 +100,7 @@ const mapDispatch = (dispatch) => {
   return {
     loadProducts: () => dispatch(fetchProductsThunk()),
     addNewProduct: (product) => dispatch(addProductThunk(product)),
-    deleteProduct:(id) =>dispatch(deleteProductThunk(id))
+    deleteProduct: (id) => dispatch(deleteProductThunk(id))
   };
 };
 

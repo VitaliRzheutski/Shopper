@@ -42,7 +42,7 @@ class SingleProduct extends React.Component {
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                 <div id="container">
 
-                    <div class="product-details">
+                    <div className="product-details">
 
                         <h1>{singleProduct.productName}</h1>
                         {/* stars may be will use */}
@@ -54,28 +54,37 @@ class SingleProduct extends React.Component {
                             <i class="fa fa-star-o" aria-hidden="true"></i>
                         </span> */}
 
-                        <p class="information">{singleProduct.description}</p>
+                        <p className="information">{singleProduct.description}</p>
 
 
 
-                        <div class="control">
+                        <div className="control">
 
-                            <button class="btn">
-                                <span class="price">${singleProduct.price}</span>
-                                <span class="shopping-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                                <span class="buy">Get now</span>
+                            <button className="btn">
+                                <span className="price">${singleProduct.price}</span>
+                                <span className="shopping-cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i></span>
+                                <span className="buy">Get now</span>
                             </button>
 
                         </div>
 
                     </div>
 
-                    <div class="product-image">
+                    <div className="product-image">
 
                         <img src={singleProduct.imageUrl} alt="" />
 
 
                     </div>
+                    <Link to={`/products/${singleProduct.id}/updateProduct`} className="link">
+              <button
+                type="button"
+                className="updateStudent"
+
+              >
+                Edit product
+              </button>
+             </Link>
 
                 </div>
             </div>

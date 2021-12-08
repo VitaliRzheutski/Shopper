@@ -29,6 +29,7 @@ main {
 
 form{
   margin: auto  auto;
+  margin-bottom: 25px ;
   width: 300px;
   height: 370px;
   border: 1px solid grey;
@@ -38,6 +39,7 @@ form{
 
 #createBtn{
   margin: auto auto;
+  padding: 5px 5px;
 }
 #navbar{
   text-align: center;
@@ -139,7 +141,7 @@ font-family: 'EB Garamond', serif;
 
 	transform: translateY(0px);
 	transition: 0.3s linear;
-	background:  #809fff;
+	/* background:  #809fff; */
 	border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -214,3 +216,28 @@ font-family: 'EB Garamond', serif;
 
 .product-image:hover img {transition: all 0.3s ease-out;}
 .product-image:hover img {transform: scale(1.2, 1.2);}
+
+.singleCard{
+  width: 300px;
+  height: 400px;
+  margin-right: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+.singleCard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.singleCard img{
+  width: 150px;
+  height: 200px;
+  
+}
+.allCards{
+  display: flex;
+  justify-content: space-between;
+  
+}
+
