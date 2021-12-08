@@ -36,14 +36,15 @@ class UpdateProduct extends React.Component {
         // console.log('this.state:', this.state)
         return (
             // <div>kyky</div>
-              <div id="container">
+              <div id="container1">
                 <div id="navbar">Update Product:</div>
 
                 <form onSubmit={this.handleSubmit}>
-                  <label htmlFor="productName">Name:</label>
+                  <label className="form-label" htmlFor="productName">Name:</label>
                   <input
                     type="text"
                     name="productName"
+                    className="form-control"
                     value={this.state.productName}
                     onChange={this.handleChange}
                   />
@@ -52,6 +53,7 @@ class UpdateProduct extends React.Component {
                   <input
                     type="text"
                     name="description"
+                    className="form-control"
                     value={this.state.description}
                     onChange={this.handleChange}
                   />
@@ -60,6 +62,7 @@ class UpdateProduct extends React.Component {
                   <input
                     type="text"
                     name="price"
+                    className="form-control"
                     value={this.state.price}
                     onChange={this.handleChange}
                   />
@@ -68,11 +71,12 @@ class UpdateProduct extends React.Component {
                   <input
                     type="text"
                     name="quantity"
+                    className="form-control"
                     value={this.state.quantity}
                     onChange={this.handleChange}
                   />
 
-                  <button type="submit">Update Product</button>
+                  <button type="submit" id="createBtn" className="btn btn-primary btn-block " >Update Product</button>
                 </form>
 
               </div>
