@@ -39,8 +39,12 @@ form{
 }
 
 #createBtn{
-  margin: auto auto;
+  margin: 10px 55px;
   padding: 5px 5px;
+  border-radius:5px;
+}
+#updateProductBut :hover{
+  box-shadow: 0 8px 16px 0 red;
 }
 #navbar{
   text-align: center;
@@ -249,4 +253,6 @@ font-family: 'EB Garamond', serif;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-
+.buttonDelete{
+  padding: 8px;
+}

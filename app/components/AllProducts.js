@@ -40,7 +40,7 @@ export class AllProducts extends React.Component {
 
               <button
                     type="button"
-                    className="button btn btn-danger"
+                    className="buttonDelete btn btn-danger"
                     onClick={() => this.props.deleteProduct(product.id)}
                   >
                     DELETE

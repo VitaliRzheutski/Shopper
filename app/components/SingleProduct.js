@@ -80,7 +80,7 @@ class SingleProduct extends React.Component {
                 <Link to={`/products/${singleProduct.id}/updateProduct`} className="link">
               <button
                 type="button"
-                className="updateStudent"
+                className="updateProduct btn btn-primary btn-block"
 
               >
                 Edit product
