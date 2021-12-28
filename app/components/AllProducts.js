@@ -53,35 +53,6 @@ export class AllProducts extends React.Component {
 
         </div> 
 
-
-        {/* <div className="card mb-3" >
-          {products.map((product) => (
-            <div className="row g-0" id="card" key={product.id}>
-              <Link to={`/products/${product.id}`}  key={product.id} >
-              <div className="col-md-4">
-                <img src={product.imageUrl} className="img-fluid rounded-start" alt="..." />
-              </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">{product.productName}</h5>
-                  <p className="card-text">{product.description}</p>
-                </div>
-              </div>
-              </Link>
-              <button
-                    type="button"
-                    className="button btn btn-danger"
-                    onClick={() => this.props.deleteProduct(product.id)}
-                  >
-                    DELETE
-                  </button>
-
-
-            </div>
-          ))}
-
-        </div> */}
-
       </div>
 
     );

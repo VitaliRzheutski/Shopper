@@ -11,31 +11,6 @@ class SingleProduct extends React.Component {
         const singleProduct = this.props.singleProduct
         return (
 
-            //     <div >
-            //         <div>Single Products</div>
-            //         <main>
-            //             <h1>Product</h1>
-            //         </main>
-
-            //         <img src={singleProduct.imageUrl} />
-            //         <div className="container"  >
-            //             <h4>Product:{singleProduct.productName}</h4>
-            //             <p>Price:{singleProduct.price}</p>
-            //             <p>Description:{singleProduct.description}</p>
-            //             <p>Quantity:{singleProduct.quantity}</p>
-
-
-            //         </div>
-            //         <Link to={`/products/${singleProduct.id}/updateProduct`} className="link">
-            //   <button
-            //     type="button"
-            //     className="updateStudent"
-
-            //   >
-            //     Edit campus
-            //   </button>
-            // </Link>
-            //     </div>
 
             <div className="singleProd">
 

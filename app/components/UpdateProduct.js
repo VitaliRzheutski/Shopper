@@ -76,7 +76,7 @@ class UpdateProduct extends React.Component {
                     onChange={this.handleChange}
                   />
 
-                  <button type="submit" id="createBtn" className="updateProductB" >Update Product</button>
+                  <button type="submit" id="createBtn" className="updateProductBut" >Update Product</button>
                 </form>
 
               </div>

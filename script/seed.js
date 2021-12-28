@@ -36,10 +36,10 @@ async function seed() {
     },
     {
       isPurchased: true,
-      userId: 5
+      userId: 2
     }, {
       isPurchased: true,
-      userId: 5
+      userId: 3
     }]
 
   const orders = await Promise.all([
@@ -75,9 +75,9 @@ async function seed() {
     Product.bulkCreate(productData, { validate: true })
   ])
   const orderDetailData = [
-    { productPrice: 150, orderId: 4, productId: 4 },
-    {productPrice: 49, orderId: 4, productId: 9},
-    {productPrice: 197, orderId: 6, productId: 10},
+    { productPrice: 150, orderId: 1, productId: 1 },
+    {productPrice: 49, orderId: 1, productId: 2},
+    {productPrice: 197, orderId: 2, productId: 3},
   ]
   const orderDetails = await Promise.all([
     OrderDetail.bulkCreate(orderDetailData, { validate: true })

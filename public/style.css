@@ -39,7 +39,7 @@ form{
 }
 
 #createBtn{
-  margin: 10px 55px;
+  margin: 0px 81px;
   padding: 5px 5px;
   border-radius:5px;
 }
@@ -47,7 +47,14 @@ form{
   box-shadow: 0 8px 16px 0 red;
 }
 #navbar{
-  text-align: center;
+  display: flex;
+}
+#navbar a{
+  text-decoration: none; 
+}
+.section-title{
+  margin-right: 25px;
+  
 }
 
 
