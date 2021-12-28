@@ -1,31 +1,35 @@
 'use strict'
-const db = require('../server/db/database');
-const User = require('../server/db/user');
-const Order = require('../server/db/order');
-const Product = require('../server/db/product');
-const OrderDetail = require('../server/db/orderDetails')
+// const db = require('../server/db/database'); 
+// const User = require('../server/db/user');
+// const Order = require('../server/db/order');
+// const Product = require('../server/db/product');
+// const OrderDetail = require('../server/db/orderDetails')
+const {db,User,Order,Product, orderDetail} = require('../server/db')
+
 async function seed() {
   await db.sync({ force: true })
   console.log('db synced!')
   const userData = [
     {
-
       firstName: 'Cody',
       lastName: 'Pug',
       address: '620 Riss Pl',
       email: 'cody@email.com',
+      imageUrl: 'https://m.media-amazon.com/images/I/71gD8WdSlaL._AC_SL1500_.jpg',
     },
     {
       firstName: 'Vitali',
       lastName: 'Rzheutski',
       address: '34 West 139th Street',
       email: 'vitalrzheutsky@email.com',
+      imageUrl: 'https://m.media-amazon.com/images/I/71gD8WdSlaL._AC_SL1500_.jpg',
     },
     {
       firstName: 'Hanna',
       lastName: 'Rzheutskaya',
       address: '34 West 139th Street',
       email: 'hanna@email.com',
+      imageUrl: 'https://m.media-amazon.com/images/I/71gD8WdSlaL._AC_SL1500_.jpg',
     }
   ]
   const users = await Promise.all([User.bulkCreate(userData, { validate: true })])
@@ -37,10 +41,7 @@ async function seed() {
     {
       isPurchased: true,
       userId: 2
-    }, {
-      isPurchased: true,
-      userId: 3
-    }]
+    },]
 
   const orders = await Promise.all([
     Order.bulkCreate(orderData, { validate: true })
@@ -75,17 +76,17 @@ async function seed() {
     Product.bulkCreate(productData, { validate: true })
   ])
   const orderDetailData = [
-    { productPrice: 150, orderId: 1, productId: 1 },
-    {productPrice: 49, orderId: 1, productId: 2},
-    {productPrice: 197, orderId: 2, productId: 3},
+    { productPrice: 1200, orderId: 1, productId: 1 },
+    {productPrice: 1100, orderId: 2, productId: 2},
   ]
   const orderDetails = await Promise.all([
-    OrderDetail.bulkCreate(orderDetailData, { validate: true })
+    orderDetail.bulkCreate(orderDetailData, { validate: true })
   ])
+  // console.log(`Products ${products}`)
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${products.length} products`)
   console.log(`seeded ${orders.length} orders`)
-  console.log(`seeded ${orderDetails.length} orders`)
+  console.log(`seeded ${orderDetails.length} orderDetails`)
   console.log(`seeded successfully`)
 }
 // We've separated the `seed` function from the `runSeed` function.
