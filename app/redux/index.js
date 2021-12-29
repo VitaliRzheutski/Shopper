@@ -5,7 +5,8 @@ import singleProductReducer from './singleProduct';
 
 const appReducer = combineReducers({
  products:productsReducer,
- product:singleProductReducer
+ product:singleProductReducer,
+
 })
 
 export default appReducer

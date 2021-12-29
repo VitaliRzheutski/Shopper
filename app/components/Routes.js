@@ -7,6 +7,7 @@ import HomePage from "./HomePage";
 import Navbar from "./NavBar";
 import UpdateProduct from "./UpdateProduct";
 import Login from "./LogIn";
+import UserPage from "./UserPage";
 
 const Routes = () => {
   return (
@@ -25,6 +26,8 @@ const Routes = () => {
           path="/products/:productId/updateProduct"
           component={UpdateProduct}
         />
+
+<Route  path="/home" component={UserPage} />
         
         
       </div>

@@ -32,6 +32,9 @@ const User = db.define("user", {
         type: Sequelize.STRING,
         defaultValue: "https://fortmyersradon.com/wp-content/uploads/2019/12/dummy-user-img-1.png",
       },
+      password: {
+        type: Sequelize.STRING
+      },
 })
 
 module.exports = User

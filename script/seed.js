@@ -16,6 +16,7 @@ async function seed() {
       address: '620 Riss Pl',
       email: 'cody@email.com',
       imageUrl: 'https://m.media-amazon.com/images/I/71gD8WdSlaL._AC_SL1500_.jpg',
+      password:'12345',
     },
     {
       firstName: 'Vitali',
@@ -23,6 +24,7 @@ async function seed() {
       address: '34 West 139th Street',
       email: 'vitalrzheutsky@email.com',
       imageUrl: 'https://m.media-amazon.com/images/I/71gD8WdSlaL._AC_SL1500_.jpg',
+      password:'12345',
     },
     {
       firstName: 'Hanna',
@@ -30,6 +32,7 @@ async function seed() {
       address: '34 West 139th Street',
       email: 'hanna@email.com',
       imageUrl: 'https://m.media-amazon.com/images/I/71gD8WdSlaL._AC_SL1500_.jpg',
+      password:'12345',
     }
   ]
   const users = await Promise.all([User.bulkCreate(userData, { validate: true })])
