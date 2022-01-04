@@ -1,5 +1,4 @@
 import React from "react";
-import {  Router } from "react-router-dom";
 import {withRouter, Route, Switch} from 'react-router-dom'
 import AllProducts from "./AllProducts";
 import SingleProduct from "./SingleProduct";
@@ -10,7 +9,6 @@ import Login from "./LogIn";
 import UserPage from "./UserPage";
 import { me } from "../redux/user";
 import {connect} from 'react-redux'
-import history from "../history";
 import PropTypes from 'prop-types'
 
 

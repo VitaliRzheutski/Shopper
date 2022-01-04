@@ -6,7 +6,7 @@ import { loginThunk } from '../redux/user'
  */
  const Login = props => {
   const {handleSubmit} = props
-  console.log('props:',props)
+  // console.log('props:',props)
 
   return (
     <div>
@@ -39,10 +39,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         evt.preventDefault();
         const email = evt.target.email.value;
         const password = evt.target.password.value;
-        console.log('email:',email)
-        console.log('password:',password)
         await dispatch(loginThunk({ email, password }));
-        console.log('!')
         ownProps.history.push("/home");
       } catch (error){
         console.error(error)

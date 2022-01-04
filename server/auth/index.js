@@ -19,7 +19,6 @@ router.put("/login", async (req, res, next) => {
       });
       if (user) {
         req.session.userId = user.id
-        console.log('req.session',req.session)
 
         res.json(user);
 
@@ -33,6 +32,8 @@ router.put("/login", async (req, res, next) => {
     }
   });
 
+
+
   router.get("/me", async (req, res, next) => {
     try {
       if (!req.session.userId) {
@@ -45,3 +46,10 @@ router.put("/login", async (req, res, next) => {
       next(err);
     }
   });
+
+  router.delete('/logout', (req, res) => {
+    console.log('Logou route WORKED')
+    // req.logout()
+    req.session.destroy()
+    res.redirect('/')
+  })
