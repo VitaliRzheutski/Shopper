@@ -1,17 +1,16 @@
 import React from 'react'
 import {connect} from 'react-redux'
-// import PropTypes from 'prop-types'
-// import {auth} from '../store'
-
+import { loginThunk } from '../redux/user'
 /**
  * COMPONENT
  */
  const Login = props => {
-//   const {name, displayName, handleSubmit, error} = props
+  const {handleSubmit} = props
+  console.log('props:',props)
 
   return (
     <div>
-      <form >
+      <form onSubmit={handleSubmit} >
         <div>
           <label htmlFor="email">
             <small>Email</small>
@@ -33,8 +32,26 @@ import {connect} from 'react-redux'
     </div>
   )
 }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    async handleSubmit(evt) {
+      try {
+        evt.preventDefault();
+        const email = evt.target.email.value;
+        const password = evt.target.password.value;
+        console.log('email:',email)
+        console.log('password:',password)
+        await dispatch(loginThunk({ email, password }));
+        console.log('!')
+        ownProps.history.push("/home");
+      } catch (error){
+        console.error(error)
+      }
+    },
+  };
+};
 
-export default Login
+export default connect(null,mapDispatchToProps)(Login)
 
 
 

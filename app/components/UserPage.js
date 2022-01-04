@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
  const UserPage = (props) => {
     console.log('props:',props)
     const {handleClick, user} = props
-    // console.log('state:',state)
+    console.log('user:',user)
   
     if(!user.id){
       return <Redirect to='/login' />
@@ -14,7 +14,7 @@ import { Redirect } from 'react-router-dom';
       <div className='h100 w100 flex column align-items-center justify-center'>
         <div className='flex'>
           {/* <img src={user.imageUrl} className='rounded mr1' /> */}
-          <h1>Welcome back !</h1>
+          <h1>Welcome back !{user.email}</h1>
         </div>
         <div>
           <button className='btn bg-red white p1 rounded' onClick={handleClick}>Logout</button>
