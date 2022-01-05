@@ -16,6 +16,12 @@ const Navbar = () => {
       <Link to="/login">
         <p className="section-title">Login</p>
       </Link>
+
+      <Link to="/signup">
+        <p className="section-title">Signup</p>
+      </Link>
+
+
     </div>
   );
 };

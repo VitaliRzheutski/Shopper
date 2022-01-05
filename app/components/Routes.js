@@ -9,7 +9,8 @@ import Login from "./LogIn";
 import UserPage from "./UserPage";
 import { me } from "../redux/user";
 import {connect} from 'react-redux'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import SignUp from "./SignUp";
 
 
 class Routes extends React.Component {
@@ -33,7 +34,7 @@ class Routes extends React.Component {
         <Route  path="/login" component={Login} />
         <Route  exact path="/products" component={AllProducts} />
         <Route  path="/products/:productId" component={SingleProduct} />
-
+        <Route path="/signup" component={SignUp} />
         <Route
           path="/products/:productId/updateProduct"
           component={UpdateProduct}
