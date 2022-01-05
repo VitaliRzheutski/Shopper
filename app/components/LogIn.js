@@ -24,7 +24,7 @@ import { loginThunk } from '../redux/user'
           <input name="password" type="password" />
         </div>
         <div>
-          <button type="submit">button</button>
+          <button type="submit">Login</button>
         </div>
         {/* {error && error.response && <div> {error.response.data} </div>} */}
       </form>

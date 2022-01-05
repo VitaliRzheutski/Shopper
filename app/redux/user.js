@@ -3,8 +3,8 @@ import history from '../history'
 
 //action type
 const GET_USER = 'GET_USER';
-const GET_SINGLE_USER = 'GET_SINGLE_USER'
-const REMOVE_USER = 'REMOVE_USER'
+const GET_SINGLE_USER = 'GET_SINGLE_USER';
+const REMOVE_USER = 'REMOVE_USER';
 
 const getUser = user => ({type: GET_SINGLE_USER, user})
 
@@ -18,6 +18,7 @@ export const gotMe = (user) =>{
 export const removeUser = () => ({type: REMOVE_USER})
 const initialState = {
 }
+
 //thunk
 export const me = () => async dispatch => {
     try {
@@ -62,6 +63,19 @@ export const logOutThunk = () =>{
     }
   }
 }
+//???
+export const singUpUserThunk = (user) =>{
+  return async(dispatch)=>{
+    try{
+      const {data} = await axios.post('/auth/signup',user);
+      dispatch(getUser(data));
+      console.log('SIGNUP WORKED!')
+      history.push('/home')
+    }catch(error){
+      console.log(error)
+    }
+  }
+}
 //reducer
 export const reducerUser = (state = initialState,action)=>{
     switch(action.type){
@@ -70,7 +84,7 @@ export const reducerUser = (state = initialState,action)=>{
             case GET_SINGLE_USER:
               return  action.user
             case REMOVE_USER:
-              return initialState
+              return initialState;
         default: return state
     }
 }

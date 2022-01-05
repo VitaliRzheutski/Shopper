@@ -1,16 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { loginThunk } from '../redux/user'
+import { singUpUserThunk } from '../redux/user'
 /**
  * COMPONENT
  */
 const SignUp = props => {
     const { handleSubmit } = props
-    // console.log('props:',props)
+    console.log('props:',props)
+
+
 
     return (
         <div>
-            <form >
+            <form onSubmit={handleSubmit} >
                 <div>
                     <label htmlFor="email">
                         <small>Email</small>
@@ -30,10 +32,10 @@ const SignUp = props => {
                     <input name="firstName" type="firstName" />
                 </div>
                 <div>
-                    <label htmlFor="lastname">
+                    <label htmlFor="lastName">
                         <small>Last name</small>
                     </label>
-                    <input name="lastname" type="lastname" />
+                    <input name="lastName" type="lastName" />
                 </div>
 
                 <div>
@@ -44,34 +46,33 @@ const SignUp = props => {
                 </div>
 
                 <div>
-                    <button type="submit">button</button>
+                    <button type="">Signup</button>
                 </div>
-                {/* {error && error.response && <div> {error.response.data} </div>} */}
             </form>
-            {/* <a href="/auth/google"> with Google</a> */}
         </div>
     )
 }
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//     return {
-//         async handleSubmit(evt) {
-//             try {
-//                 evt.preventDefault();
-//                 const email = evt.target.email.value;
-//                 const password = evt.target.password.value;
-//                 await dispatch(loginThunk({ email, password }));
-//                 ownProps.history.push("/home");
-//             } catch (error) {
-//                 console.error(error)
-//             }
-//         },
-//     };
-// };
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        async handleSubmit(evt) {
+            try {
+                evt.preventDefault();
+                const email = evt.target.email.value;
+                const password = evt.target.password.value;
+                const firstName = evt.target.firstName.value;
+                const lastName = evt.target.lastName.value;
+                const address = evt.target.address.value;
+                
+                await dispatch(singUpUserThunk({ email, password,firstName,lastName,address }));
+                ownProps.history.push("/home");
+            } catch (error) {
+                console.error(error)
+            }
+        },
+    };
+};
 
-// export default connect(null, mapDispatchToProps)(SignUp)
-
-export default SignUp
-
+export default connect(null, mapDispatchToProps)(SignUp)
 
 
 

@@ -33,6 +33,32 @@ router.put("/login", async (req, res, next) => {
   });
 
 
+  //??
+  router.post('/signup', async (req, res, next) => {
+    try {
+      const user = await User.create(req.body)
+      console.log('user signUp',user)
+      if(user){
+        req.session.userId = user.id;
+        res.json(user)
+
+      }
+    } catch (err) {
+      if (err.name === 'SequelizeUniqueConstraintError') {
+        res.status(401).send('User already exists')
+      } else {
+        next(err)
+      }
+    }
+  })
+
+  router.delete('/logout', (req, res) => {
+    console.log('Logou route WORKED')
+    // req.logout()
+    req.session.destroy()
+    res.redirect('/')
+  })
+
 
   router.get("/me", async (req, res, next) => {
     try {
@@ -46,10 +72,3 @@ router.put("/login", async (req, res, next) => {
       next(err);
     }
   });
-
-  router.delete('/logout', (req, res) => {
-    console.log('Logou route WORKED')
-    // req.logout()
-    req.session.destroy()
-    res.redirect('/')
-  })

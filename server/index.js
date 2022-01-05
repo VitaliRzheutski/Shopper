@@ -3,9 +3,19 @@ const path = require('path')
 const volleyball = require('volleyball');
 const passport = require('passport')
 const session = require('express-session')
-
+const {User} = require('./db')
 const app = express()
+// passport registration
+passport.serializeUser((user, done) => done(null, user.id))
 
+passport.deserializeUser(async (id, done) => {
+  try {
+    const user = await User.findByPk(id)
+    done(null, user)
+  } catch (err) {
+    done(err)
+  }
+})
 // logging middleware
 // Only use logging middleware when not running tests
 const debug = process.env.NODE_ENV === 'test'
@@ -21,7 +31,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
-
+app.use(passport.initialize());
+app.use(passport.session())
 // static middleware
 app.use(express.static(path.join(__dirname, '../public')))
 
