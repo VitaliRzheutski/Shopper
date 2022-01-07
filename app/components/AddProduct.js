@@ -14,7 +14,6 @@ import {addProductThunk } from "../redux/products";
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
 
-        // console.log("this.props from AddProduct:", this.props);
     }
     handleSubmit(event) {
         event.preventDefault();
@@ -35,7 +34,6 @@ import {addProductThunk } from "../redux/products";
       }
    
     render() {
-        // console.log("this.props from ADDCAMPUS:", this.props);
         return (
           <div id="container1">
             

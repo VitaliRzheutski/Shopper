@@ -35,16 +35,15 @@ class Routes extends React.Component {
         <Route  exact path="/products" component={AllProducts} />
         <Route  path="/products/:productId" component={SingleProduct} />
         <Route path="/signup" component={SignUp} />
-        <Route
-          path="/products/:productId/updateProduct"
-          component={UpdateProduct}
-        />
+        <Route path="/products/:productId/updateProduct" component={UpdateProduct}/>
+              
               {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={UserPage} />
           </Switch>
         )}
+
            {/* Displays our Login component as a fallback */}
            <Route component={Login} />
 

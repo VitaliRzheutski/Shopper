@@ -6,7 +6,6 @@ import { singUpUserThunk } from '../redux/user'
  */
 const SignUp = props => {
     const { handleSubmit } = props
-    console.log('props:',props)
 
 
 

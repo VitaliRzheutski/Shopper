@@ -6,7 +6,6 @@ import { loginThunk } from '../redux/user'
  */
  const Login = props => {
   const {handleSubmit} = props
-  // console.log('props:',props)
 
   return (
     <div>
@@ -26,9 +25,7 @@ import { loginThunk } from '../redux/user'
         <div>
           <button type="submit">Login</button>
         </div>
-        {/* {error && error.response && <div> {error.response.data} </div>} */}
       </form>
-      {/* <a href="/auth/google"> with Google</a> */}
     </div>
   )
 }

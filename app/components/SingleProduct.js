@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchSingleProduct } from "../redux/singleProduct";
 import { Link } from "react-router-dom";
+import UpdateProduct from "./UpdateProduct";
 class SingleProduct extends React.Component {
     componentDidMount() {
         this.props.loadSingleProduct(this.props.match.params.productId)
     }
     render() {
-        // console.log('props form singleProduct:', this.props)
         const singleProduct = this.props.singleProduct
         return (
 
@@ -20,15 +20,6 @@ class SingleProduct extends React.Component {
                     <div className="product-details">
 
                         <h1>{singleProduct.productName}</h1>
-                        {/* stars may be will use */}
-                        {/* <span class="hint-star star">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                        </span> */}
-
                         <p className="information">{singleProduct.description}</p>
 
 
@@ -52,15 +43,16 @@ class SingleProduct extends React.Component {
 
 
                 </div>
-                <Link to={`/products/${singleProduct.id}/updateProduct`} className="link">
-              <button
+                {/* <Link to={`/products/${singleProduct.id}/updateProduct`} className="link"> */}
+              {/* <button
                 type="button"
                 className="updateProduct btn btn-primary btn-block"
 
               >
                 Edit product
-              </button>
-             </Link>
+              </button> */}
+             {/* </Link> */}
+             <UpdateProduct/>
             </div>
 
 

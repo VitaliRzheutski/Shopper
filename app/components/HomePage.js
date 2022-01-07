@@ -1,7 +1,6 @@
 import React from "react";
 
 const HomePage = (props) => {
-//   console.log('props form Home:',props)
   return (
     <div id="homepage" className="row">
        <main>

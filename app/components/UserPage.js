@@ -4,9 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { logOutThunk } from '../redux/user';
 
  const UserPage = (props) => {
-    console.log('props UserPage:',props)
     const {handleClick, user} = props
-    // console.log('user:',user)
   
     if(!user.id){
       return <Redirect to='/login' />
@@ -14,7 +12,6 @@ import { logOutThunk } from '../redux/user';
     return (
       <div className='h100 w100 flex column align-items-center justify-center'>
         <div className='flex'>
-          {/* <img src={user.imageUrl} className='rounded mr1' /> */}
           <h1>Welcome back !!!{user.email}</h1>
 
         </div>
@@ -24,12 +21,9 @@ import { logOutThunk } from '../redux/user';
     )
   }
 
-//   export default UserPage
 
 const mapStateToProps = (state) => {
-  // console.log('state:',state)
     return {
-      // your code here
       user: state.user
     }
   }

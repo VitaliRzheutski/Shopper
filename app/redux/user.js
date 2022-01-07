@@ -23,7 +23,6 @@ const initialState = {
 export const me = () => async dispatch => {
     try {
       const res = await axios.get('/auth/me')
-      // console.log('USER from AUTH thunk:',res.data)
       dispatch(gotMe(res.data))
     } catch (err) {
       console.error(err)
@@ -43,7 +42,6 @@ export const loginThunk = (formData) =>{
     return  async(dispatch) =>{
     try{
       const { data } = await axios.put('/auth/login', formData);
-    //   console.log('data:',data)
       dispatch(gotMe(data));
       history.push('/home')
     } catch (error) {
@@ -63,7 +61,6 @@ export const logOutThunk = () =>{
     }
   }
 }
-//???
 export const singUpUserThunk = (user) =>{
   return async(dispatch)=>{
     try{

@@ -32,10 +32,7 @@ class UpdateProduct extends React.Component {
     }
 
     render() {
-        // console.log("props grpm UPDATE:", this.props);
-        // console.log('this.state:', this.state)
         return (
-            // <div>kyky</div>
               <div id="container1">
                 <div id="navbar">Update Product:</div>
 

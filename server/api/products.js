@@ -23,9 +23,7 @@ router.get('/:id',async(req,res,next)=>{
 //create single product
 router.post('/',async(req,res,next)=>{
     try{
-        // console.log('req.body',req.body)
         const newProduct = await Product.create(req.body)
-        // console.log('newProduct:',newProduct)
         res.json(newProduct)
     }catch(error){
         next(error)
@@ -39,6 +37,7 @@ router.put("/:id",async(req,res,next)=>{
                 id:req.params.id
             }
         })
+        console.log('update product!',updateProduct)
         if(!updateProduct) res.sendStatus(404);
         res.sendStatus(200)
     }catch(error){
