@@ -1,29 +1,75 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { logOutThunk } from "../redux/user";
 
-const Navbar = () => {
+class Navbar extends React.Component {
+  constructor({handleClick, isLoggedIn}) {
+    super({handleClick, isLoggedIn})
+  }
+  render() {
+    console.log('this.props from NavBar:', this.props)
+    return (
+      <nav>
+        <div id="navbar" className="row1">
+          {this.props.isLogggedIn ? (
+            <div id="navbar">
+              {/* The navbar will show these links after you log in */}
+              <Link to="/">
+                <p className="section-title">Home page</p>
+              </Link>
+              <a href="/" onClick={this.props.handleClick}>
+                Logout
+              </a>
+            </div>
+          ) : (
+            <div id="navbar">
+              {/* The navbar will show these links before you log in */}
+              <Link to="/products">
+                <p className="section-title">View all products</p>
+              </Link>
 
-  return (
-    <div id="navbar" className="row1">
-      <Link to="/">
-        <p className="section-title">Home page</p>
-      </Link>
+              <Link to="/login">
+                <p className="section-title">Login</p>
+              </Link>
 
-      <Link to="/products">
-        <p className="section-title">View all products</p>
-      </Link>
+              <Link to="/signup">
+                <p className="section-title">Signup</p>
+              </Link>
+            </div>
 
-      <Link to="/login">
-        <p className="section-title">Login</p>
-      </Link>
+          )}
 
-      <Link to="/signup">
-        <p className="section-title">Signup</p>
-      </Link>
+        </div>
+      </nav>
 
+    );
+  }
 
-    </div>
-  );
 };
-
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    isLogggedIn: !!state.user.id
+  }
+}
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    handleClick(){
+      dispatch(logOutThunk())
+    }
+  }
+}
+// const mapDispatchToProps = (dispatch,ownProps)=>{
+//   const history = ownProps.history;
+//   return{
+//     async handleClick(){
+//       try{
+//         await dispatch(logOutThunk());
+//         ownProps.history.push("/")
+//       }catch(error){
+//         console.log(error)
+//       }
+//     }
+//   }
+// }
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
