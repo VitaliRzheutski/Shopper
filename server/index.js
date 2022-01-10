@@ -5,6 +5,10 @@ const passport = require('passport')
 const session = require('express-session')
 const {User} = require('./db')
 const app = express()
+// const SequelizeStore = require('connect-session-sequelize')(session.Store)
+// const db = require('./db')
+// const sessionStore = new SequelizeStore({db})
+
 // passport registration
 passport.serializeUser((user, done) => done(null, user.id))
 
@@ -31,6 +35,8 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }))
+
+
 app.use(passport.initialize());
 app.use(passport.session())
 // static middleware

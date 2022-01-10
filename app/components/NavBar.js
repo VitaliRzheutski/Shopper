@@ -4,9 +4,7 @@ import { connect } from "react-redux";
 import { logOutThunk } from "../redux/user";
 
 class Navbar extends React.Component {
-  constructor({handleClick, isLoggedIn}) {
-    super({handleClick, isLoggedIn})
-  }
+  
   render() {
     console.log('this.props from NavBar:', this.props)
     return (
@@ -18,6 +16,12 @@ class Navbar extends React.Component {
               <Link to="/">
                 <p className="section-title">Home page</p>
               </Link>
+              <Link to="/products">
+                <p className="section-title">View all products</p>
+              </Link>
+              <Link to="/cart">
+              <p className="section-title">Cart</p>
+              </Link>
               <a href="/" onClick={this.props.handleClick}>
                 Logout
               </a>
@@ -25,9 +29,7 @@ class Navbar extends React.Component {
           ) : (
             <div id="navbar">
               {/* The navbar will show these links before you log in */}
-              <Link to="/products">
-                <p className="section-title">View all products</p>
-              </Link>
+              
 
               <Link to="/login">
                 <p className="section-title">Login</p>
@@ -35,6 +37,10 @@ class Navbar extends React.Component {
 
               <Link to="/signup">
                 <p className="section-title">Signup</p>
+              </Link>
+
+              <Link to="/cart">
+              <p className="section-title">Cart</p>
               </Link>
             </div>
 

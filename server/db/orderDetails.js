@@ -11,7 +11,9 @@ const orderDetail = db.define('orderDetail', {
     type: Sequelize.INTEGER
   }
 })
-
+orderDetail.addProduct = async function(productId, orderId, productPrice) {
+  await orderDetail.create(productId, orderId, productPrice)
+}
 
 
 module.exports = orderDetail

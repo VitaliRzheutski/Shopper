@@ -15,7 +15,7 @@ import { logOutThunk } from '../redux/user';
           <h1>Welcome back !!!{user.email}</h1>
 
         </div>
-          <button className='' onClick={handleClick}>Logout</button>
+          {/* <button className='' onClick={handleClick}>Logout</button> */}
         
       </div>
     )
