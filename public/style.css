@@ -56,7 +56,10 @@ form{
   margin-right: 25px;
   
 }
-
+img{
+	height: 200px;
+	width: 200px
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
 
@@ -262,4 +265,8 @@ font-family: 'EB Garamond', serif;
 }
 .buttonDelete{
   padding: 8px;
+}
+
+.form-control{
+	width:40% ;
 }

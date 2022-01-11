@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
           model: Product
         }
       })
-
+      console.log('findOrder::',findOrder)
       if (findOrder) res.json(findOrder)
       else res.send('You have not added any items to your cart yet!')
     } catch (error) {
