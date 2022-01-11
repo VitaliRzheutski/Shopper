@@ -21,7 +21,7 @@ class Routes extends React.Component {
 
   render() {
     const {isLoggedIn} = this.props;
-    console.log('in routes logged in',isLoggedIn)
+    // console.log('in routes logged in',isLoggedIn)
 
   return (
       <div>

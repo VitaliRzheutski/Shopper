@@ -6,7 +6,7 @@ import { logOutThunk } from "../redux/user";
 class Navbar extends React.Component {
   
   render() {
-    console.log('this.props from NavBar:', this.props)
+    // console.log('this.props from NavBar:', this.props)
     return (
       <nav>
         <div id="navbar" className="row1">
