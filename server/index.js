@@ -1,13 +1,21 @@
 const express = require('express')
 const path = require('path')
 const volleyball = require('volleyball');
+const morgan = require('morgan')
 const passport = require('passport')
 const session = require('express-session')
+const {db} = require('./db')
+const SequelizeStore = require('connect-session-sequelize')(session.Store)
+
+const sessionStore = new SequelizeStore({db})
 const {User} = require('./db')
 const app = express()
-// const SequelizeStore = require('connect-session-sequelize')(session.Store)
-// const db = require('./db')
-// const sessionStore = new SequelizeStore({db})
+
+// This is a global Mocha hook, used for resource cleanup.
+// Otherwise, Mocha v4+ never quits after tests.
+if (process.env.NODE_ENV === 'test') {
+  after('close the session store', () => sessionStore.stopExpiringSessions())
+}
 
 // passport registration
 passport.serializeUser((user, done) => done(null, user.id))
@@ -22,30 +30,33 @@ passport.deserializeUser(async (id, done) => {
 })
 // logging middleware
 // Only use logging middleware when not running tests
-const debug = process.env.NODE_ENV === 'test'
-app.use(volleyball.custom({ debug }))
+
+// app.use(volleyball.custom({ debug }))
+app.use(morgan('dev'))
 
 // body parsing middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-// Session middleware
-app.use(session({
-  secret: 'This is not a very secure secret...',
-  resave: false,
-  saveUninitialized: false
-}))
-
-
+  // session middleware with passport
+app.use(
+    session({
+      secret: process.env.SESSION_SECRET || 'my best friend is Cody',
+      store: sessionStore,
+      resave: false,
+      saveUninitialized: false
+    })
+  )
 app.use(passport.initialize());
 app.use(passport.session())
-// static middleware
-app.use(express.static(path.join(__dirname, '../public')))
 
 app.use('/auth',require('./auth'))
 app.use('/api', require('./api')) // include our routes!
 
-app.get('*', (req, res) => {
+// static middleware
+app.use(express.static(path.join(__dirname, '../public')))
+
+app.use('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 }) // Send index.html for any other requests
 

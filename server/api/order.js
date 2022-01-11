@@ -4,17 +4,18 @@ module.exports = router
 
 router.get('/', async (req, res, next) => {
     try {
+      console.log('req.user:',req.user)
       const findOrder = await Order.findAll({
         where: {
-          // userId: req.user.id,  //undefined
-          isPurchased: false
+          userId: req.user.id,  //undefined
+          // isPurchased: true
         },
         include: {
           model: Product
         }
       })
-  console.log('findOrder',findOrder)
-  console.log('req.user:',req.user)
+  // console.log('findOrder',findOrder)
+
       if (findOrder) res.json(findOrder)
       else res.send('You have not added any items to your cart yet!')
     } catch (error) {

@@ -19,7 +19,8 @@ router.put("/login", async (req, res, next) => {
       });
       if (user) {
         req.session.userId = user.id
-        res.json(user);
+        req.login(user, err => (err ? next(err) : res.json(user)))
+        // res.json(user);
       } else {
         const err = new Error("Incorrect email or password!");
         err.status = 401;
@@ -36,7 +37,7 @@ router.put("/login", async (req, res, next) => {
       const user = await User.create(req.body)
       if(user){
         req.session.userId = user.id;
-        res.json(user)
+        req.login(user, err => (err ? next(err) : res.json(user)))
       }
     } catch (err) {
       if (err.name === 'SequelizeUniqueConstraintError') {
@@ -48,9 +49,9 @@ router.put("/login", async (req, res, next) => {
   })
 
   router.delete('/logout', (req, res) => {
-    console.log('Logou route WORKED')
-    req.session.destroy()
-    res.redirect('/')
+    req.logout();
+    req.session.destroy();
+    res.redirect('/');
   })
 
 

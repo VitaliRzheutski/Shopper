@@ -25,6 +25,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "history": "^5.2.0",
+    "morgan": "^1.10.0",
     "passport": "^0.5.2",
     "pg": "^7.4.3",
     "prop-types": "^15.8.0",
