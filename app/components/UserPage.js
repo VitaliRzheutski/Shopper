@@ -12,11 +12,10 @@ import { logOutThunk } from '../redux/user';
     return (
       <div className='h100 w100 flex column align-items-center justify-center'>
         <div className='flex'>
+        <h1>Welcome to Online Store!!!</h1>
           <h1>Welcome back !!!{user.email}</h1>
 
         </div>
-          {/* <button className='' onClick={handleClick}>Logout</button> */}
-        
       </div>
     )
   }

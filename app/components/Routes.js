@@ -31,7 +31,7 @@ class Routes extends React.Component {
         </nav>
         <Switch>
 
-        <Route exact path="/" component={HomePage} />
+        <Route exact path="/" component={UserPage} /> 
         <Route  path="/login" component={Login} />
         <Route path="/cart" component={Cart} />
         <Route  exact path="/products" component={AllProducts} />

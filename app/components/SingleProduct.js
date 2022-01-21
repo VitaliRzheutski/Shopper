@@ -14,6 +14,7 @@ class SingleProduct extends React.Component {
 
     render() {
         const singleProduct = this.props.singleProduct
+        const isAdmin = this.props.user.isAdmin
         return (
 
 
@@ -48,8 +49,10 @@ class SingleProduct extends React.Component {
 
 
                 </div>
-               
-             <UpdateProduct/>
+               {!!isAdmin &&(
+                   <UpdateProduct/>
+               )}
+             
             </div>
 
 
@@ -58,7 +61,8 @@ class SingleProduct extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-        singleProduct: state.product
+        singleProduct: state.product,
+        user:state.user
     }
 };
 const mapDispatchToProps = (dispatch) => {

@@ -1,6 +1,17 @@
 const router = require('express').Router()
 const Product = require('../db/product');
 
+
+const isAdminMiddleware = (req, res, next) => {
+    if (!req.user.isAdmin) {
+      const error = new Error('You are not an admin')
+      error.status = 401
+      next(error)
+    } else {
+      next()
+    }
+  }
+
 //get all products
 router.get('/',async(req,res,next)=>{
     try{
@@ -20,8 +31,8 @@ router.get('/:id',async(req,res,next)=>{
         next(error)
     }
 })
-//create single product
-router.post('/',async(req,res,next)=>{
+//create single product - for admin only
+router.post('/',isAdminMiddleware,async(req,res,next)=>{
     try{
         const newProduct = await Product.create(req.body)
         res.json(newProduct)
@@ -29,8 +40,8 @@ router.post('/',async(req,res,next)=>{
         next(error)
     }
 })
-//update product
-router.put("/:id",async(req,res,next)=>{
+//update product - for admin only
+router.put("/:id",isAdminMiddleware,async(req,res,next)=>{
     try{
         const updateProduct = await Product.update(req.body,{
             where:{
@@ -44,8 +55,8 @@ router.put("/:id",async(req,res,next)=>{
         next(error)
     }
 })
-//delete product
-router.delete("/:id",async(req,res,next)=>{
+//delete product - for admin only
+router.delete("/:id",isAdminMiddleware,async(req,res,next)=>{
     try{
         const deleteProduct = await Product.destroy({
             where:{

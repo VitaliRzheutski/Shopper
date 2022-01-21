@@ -43,7 +43,7 @@ export const loginThunk = (formData) =>{
     try{
       const { data } = await axios.put('/auth/login', formData);
       dispatch(gotMe(data));
-      history.push('/home')
+      history.push('/')
     } catch (error) {
       console.error(error);
     }

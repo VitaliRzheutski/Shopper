@@ -16,7 +16,7 @@ class Cart extends React.Component {
 
 
     getProducts(productArray) {
-        console.log('productArray:', productArray)
+        // console.log('productArray:', productArray)
         console.log('props from Cart:', this.props)
         return (
             <section className="pt-5 pb-5" >
@@ -32,7 +32,6 @@ class Cart extends React.Component {
                                     {productArray.map(product => {
                                         return (
                                             <tr key={product.id}>
-                                                {/* {this.state.countTotalPrice(product.price)} */}
                                                 <td data-th="Product">
                                                     <div className="row">
                                                         <div className="col-md-3 text-left">
@@ -50,9 +49,6 @@ class Cart extends React.Component {
                                                 </td>
                                                 <td className="actions" data-th="">
                                                     <div className="text-right">
-                                                        {/* <button className="btn btn-white border-secondary bg-white btn-md mb-2">
-                                                            <i className="fas fa-sync"></i>Hey
-                                                        </button> */}
                                                         <button className="btn btn-white border-secondary bg-white btn-md mb-2" onClick={() => { this.props.deleteProductFromCart(product.id) }}>
                                                             Remove
                                                         </button>
@@ -60,19 +56,9 @@ class Cart extends React.Component {
                                                 </td>
                                             </tr>
                                         )
-
                                     })}
-
-
                                 </tbody>
-
-
                             </table>
-                            {/* <div className="float-right text-right">
-                                <h4>Subtotal:</h4>
-                                <h1>444</h1> */}
-                            {/* <h1>{this.state.totalPrice}</h1> */}
-                            {/* </div> */}
                         </div>
                     </div>
                     <div className="row mt-4 d-flex align-items-center">
@@ -90,34 +76,22 @@ class Cart extends React.Component {
             return <div>You don't have any items in your cart yet!</div>
         } else {
             const products = this.props.order[0].products;
-
             const priceSum = products.reduce((accum, curElement) => {
-                const price = curElement.orderDetail.productPrice
+            const price = curElement.orderDetail.productPrice
                 return accum + price
             }, 0)
-            console.log('products:', products)
+            // console.log('products:', products)
             return (
-                // <div>
-                //     <div>{this.getProducts(products)}</div>
-                // </div>
-                <div className="has-text-centered">
-                    <table className="table">
-                        {this.getProducts(products)}
-
-                        <div className="level-right has-text-weight-semibold">
-                            {/* <td className="level-item"> */}
-                                <br />
-                                Total order price: ${(priceSum).toFixed(2)}
-                            {/* </td> */}
-                        </div>
-                    </table>
+                <div className="">
+                    {this.getProducts(products)}
+                    <div className='pr'>Total order price: ${(priceSum).toFixed(2)}</div>
                 </div>
+
             )
         }
     }
 }
 const mapSate = (state) => {
-    // console.log('!state!', state)
     return {
         order: state.cart
     }

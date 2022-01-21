@@ -17,6 +17,7 @@ async function seed() {
       email: 'cody@email.com',
       imageUrl: 'https://m.media-amazon.com/images/I/71gD8WdSlaL._AC_SL1500_.jpg',
       password:'12345',
+      isAdmin:true
     },
     {
       firstName: 'Vitali',

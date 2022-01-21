@@ -28,6 +28,10 @@ const User = db.define("user", {
           },
         },
       },
+      isAdmin: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       imageUrl: {
         type: Sequelize.STRING,
         defaultValue: "https://fortmyersradon.com/wp-content/uploads/2019/12/dummy-user-img-1.png",

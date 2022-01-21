@@ -270,3 +270,12 @@ font-family: 'EB Garamond', serif;
 .form-control{
 	width:40% ;
 }
+.table{
+	
+}
+.pr{
+	text-align: center;
+	width:25%;
+	border-top:1px solid gray;
+	margin: auto auto;
+}

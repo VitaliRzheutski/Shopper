@@ -38,6 +38,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         const password = evt.target.password.value;
         await dispatch(loginThunk({ email, password }));
         ownProps.history.push("/home");
+        // ownProps.history.push("/userpage");
       } catch (error){
         console.error(error)
       }
