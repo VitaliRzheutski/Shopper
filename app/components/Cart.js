@@ -6,17 +6,18 @@ import { deleteProductFromCartThunk, getCartThunk } from '../redux/cart'
 class Cart extends React.Component {
     constructor(props) {
         super(props)
-       
+
         this.getProducts = this.getProducts.bind(this)
     }
-    
+
     componentDidMount() {
         this.props.loadCart()
     }
-  
-    
+
+
     getProducts(productArray) {
-        console.log('props from Cart:',this.props)
+        console.log('productArray:', productArray)
+        console.log('props from Cart:', this.props)
         return (
             <section className="pt-5 pb-5" >
                 <div className="container" >
@@ -52,7 +53,7 @@ class Cart extends React.Component {
                                                         {/* <button className="btn btn-white border-secondary bg-white btn-md mb-2">
                                                             <i className="fas fa-sync"></i>Hey
                                                         </button> */}
-                                                        <button className="btn btn-white border-secondary bg-white btn-md mb-2" onClick={()=>{this.props.deleteProductFromCart(product.id)}}>
+                                                        <button className="btn btn-white border-secondary bg-white btn-md mb-2" onClick={() => { this.props.deleteProductFromCart(product.id) }}>
                                                             Remove
                                                         </button>
                                                     </div>
@@ -67,11 +68,11 @@ class Cart extends React.Component {
 
 
                             </table>
-                            <div className="float-right text-right">
+                            {/* <div className="float-right text-right">
                                 <h4>Subtotal:</h4>
-                                <h1>444</h1>
-                                {/* <h1>{this.state.totalPrice}</h1> */}
-                            </div>
+                                <h1>444</h1> */}
+                            {/* <h1>{this.state.totalPrice}</h1> */}
+                            {/* </div> */}
                         </div>
                     </div>
                     <div className="row mt-4 d-flex align-items-center">
@@ -84,16 +85,32 @@ class Cart extends React.Component {
     }
     render() {
         const order = this.props.order //array with obj
-        // console.log('ORDER:!', order)
 
         if (this.props.order[0] === undefined) {
-            return <div> Cart Loading! </div>
+            return <div>You don't have any items in your cart yet!</div>
         } else {
-            const products = this.props.order[0].products
+            const products = this.props.order[0].products;
+
+            const priceSum = products.reduce((accum, curElement) => {
+                const price = curElement.orderDetail.productPrice
+                return accum + price
+            }, 0)
+            console.log('products:', products)
             return (
-                <div>
-                    {/* <h1> My Cart </h1> */}
-                    <div>{this.getProducts(products)}</div>
+                // <div>
+                //     <div>{this.getProducts(products)}</div>
+                // </div>
+                <div className="has-text-centered">
+                    <table className="table">
+                        {this.getProducts(products)}
+
+                        <div className="level-right has-text-weight-semibold">
+                            {/* <td className="level-item"> */}
+                                <br />
+                                Total order price: ${(priceSum).toFixed(2)}
+                            {/* </td> */}
+                        </div>
+                    </table>
                 </div>
             )
         }
@@ -108,7 +125,7 @@ const mapSate = (state) => {
 const mapDispatch = (dispatch) => {
     return {
         loadCart: () => dispatch(getCartThunk()),
-        deleteProductFromCart:(productId) =>  dispatch(deleteProductFromCartThunk(productId))
+        deleteProductFromCart: (productId) => dispatch(deleteProductFromCartThunk(productId))
     }
 }
 
