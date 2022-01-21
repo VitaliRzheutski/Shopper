@@ -1,27 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getCartThunk } from '../redux/cart'
+import { deleteProductFromCartThunk, getCartThunk } from '../redux/cart'
 
 
 class Cart extends React.Component {
     constructor(props) {
         super(props)
-        // this.state ={
-        //     totalPrice: 0
-        // }
+       
         this.getProducts = this.getProducts.bind(this)
-        // this.countTotalPrice = this.countTotalPrice(this)
     }
+    
     componentDidMount() {
         this.props.loadCart()
     }
-    // countTotalPrice(price){
-    //     this.state.totalPrice += price
-    //     return this.state.totalPrice
-    // }
+  
     
     getProducts(productArray) {
-        // console.log('state form CART!',this.state.totalPrice)
+        console.log('props from Cart:',this.props)
         return (
             <section className="pt-5 pb-5" >
                 <div className="container" >
@@ -54,11 +49,11 @@ class Cart extends React.Component {
                                                 </td>
                                                 <td className="actions" data-th="">
                                                     <div className="text-right">
-                                                        <button className="btn btn-white border-secondary bg-white btn-md mb-2">
-                                                            <i className="fas fa-sync"></i>
-                                                        </button>
-                                                        <button className="btn btn-white border-secondary bg-white btn-md mb-2">
-                                                            <i className="fas fa-trash"></i>
+                                                        {/* <button className="btn btn-white border-secondary bg-white btn-md mb-2">
+                                                            <i className="fas fa-sync"></i>Hey
+                                                        </button> */}
+                                                        <button className="btn btn-white border-secondary bg-white btn-md mb-2" onClick={()=>{this.props.deleteProductFromCart(product.id)}}>
+                                                            Remove
                                                         </button>
                                                     </div>
                                                 </td>
@@ -89,7 +84,7 @@ class Cart extends React.Component {
     }
     render() {
         const order = this.props.order //array with obj
-        console.log('ORDER:!', order)
+        // console.log('ORDER:!', order)
 
         if (this.props.order[0] === undefined) {
             return <div> Cart Loading! </div>
@@ -112,7 +107,8 @@ const mapSate = (state) => {
 }
 const mapDispatch = (dispatch) => {
     return {
-        loadCart: () => dispatch(getCartThunk())
+        loadCart: () => dispatch(getCartThunk()),
+        deleteProductFromCart:(productId) =>  dispatch(deleteProductFromCartThunk(productId))
     }
 }
 

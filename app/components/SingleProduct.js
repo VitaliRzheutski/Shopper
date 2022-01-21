@@ -13,9 +13,7 @@ class SingleProduct extends React.Component {
   
 
     render() {
-        console.log('this.props SingleProduct:',this.props)
         const singleProduct = this.props.singleProduct
-        console.log(' SingleProduct:',singleProduct)
         return (
 
 
