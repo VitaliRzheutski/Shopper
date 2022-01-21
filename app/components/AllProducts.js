@@ -38,7 +38,7 @@ export class AllProducts extends React.Component {
                 <img src={product.imageUrl} className="img-fluid rounded-start" alt="..." />
                 <p>ProductName: {product.productName}</p>
                 <p>Price:{product.price}</p>
-                <p>---------------------------------</p>
+                {/* <p>---------------------------------</p> */}
               </Link>
               {!!isAdmin && (
                 <button

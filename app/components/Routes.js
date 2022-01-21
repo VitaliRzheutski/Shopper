@@ -12,6 +12,8 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types';
 import SignUp from "./SignUp";
 import Cart from "./Cart";
+import ViewUsers from "./ViewUsers";
+
 
 
 class Routes extends React.Component {
@@ -38,6 +40,7 @@ class Routes extends React.Component {
         <Route  path="/products/:productId" component={SingleProduct} />
         <Route path="/signup" component={SignUp} />
         <Route path="/products/:productId/updateProduct" component={UpdateProduct}/>
+        <Route exact path="/users" component={ViewUsers} />
               
               {isLoggedIn && (
           <Switch>

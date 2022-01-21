@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { logOutThunk } from "../redux/user";
 
 class Navbar extends React.Component {
-  
+
   render() {
     // console.log('this.props from NavBar:', this.props)
     return (
@@ -20,8 +20,12 @@ class Navbar extends React.Component {
                 <p className="section-title">View all products</p>
               </Link>
               <Link to="/cart">
-              <p className="section-title">Cart</p>
+                <p className="section-title">Cart</p>
               </Link>
+              <Link to="/users">
+                <p className="section-title">ViewUsers</p>
+              </Link>
+
               <a href="/" onClick={this.props.handleClick}>
                 Logout
               </a>
@@ -29,7 +33,7 @@ class Navbar extends React.Component {
           ) : (
             <div id="navbar">
               {/* The navbar will show these links before you log in */}
-              
+
 
               <Link to="/login">
                 <p className="section-title">Login</p>
@@ -40,8 +44,10 @@ class Navbar extends React.Component {
               </Link>
 
               <Link to="/cart">
-              <p className="section-title">Cart</p>
+                <p className="section-title">Cart</p>
               </Link>
+
+
             </div>
 
           )}
@@ -58,9 +64,9 @@ const mapStateToProps = (state) => {
     isLogggedIn: !!state.user.id
   }
 }
-const mapDispatchToProps = (dispatch) =>{
-  return{
-    handleClick(){
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleClick() {
       dispatch(logOutThunk())
     }
   }

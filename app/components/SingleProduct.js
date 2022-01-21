@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addProductThunk } from "../redux/cart";
 import { fetchSingleProduct } from "../redux/singleProduct";
 import UpdateProduct from "./UpdateProduct";
+import {Link} from 'react-router-dom'
 class SingleProduct extends React.Component {
     constructor(){
         super()
@@ -31,13 +32,13 @@ class SingleProduct extends React.Component {
 
 
                         <div className="control">
-
+                            <Link to="/cart">
                             <button className="btn" onClick={()=>this.props.addProduct(singleProduct)}>
                                 <span className="price">${singleProduct.price}</span>
                                 <span className="shopping-cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i></span>
                                 <span className="buy">Get now</span>
                             </button>
-
+                            </Link>
                         </div>
 
                     </div>
