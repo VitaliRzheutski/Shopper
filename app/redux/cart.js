@@ -19,7 +19,7 @@ const addProduct = (updatedOrder) => {
 }
 
 //initial state
-const initialState = {}
+const initialState ={};
 
 //thunk
 export const getCartThunk = () => {
@@ -33,15 +33,30 @@ export const getCartThunk = () => {
         }
     }
 }
+// export const addProductThunk = (product) => {
+//     return async dispatch => {
+//         try {
+//             const { data } = await axios.post('/api/order', product)
+//             console.log('data from addProductThunk :',data)
+//             dispatch(addProduct(data))
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     }
+// }
+
 export const addProductThunk = (productId, orderId, productPrice) => {
-    return async dispatch => {
-        try {
-            const { data } = await axios.put('/api/cart', (productId, orderId, productPrice))
-            dispatch(addProduct(data))
-        } catch (error) {
-            console.log(error)
-        }
+  return async dispatch => {
+    try {
+      const{data} = await axios.post('/api/order', 
+          {productId, orderId, productPrice}
+        )
+      console.log('data from addProductThunk :',data)
+      dispatch(addProduct(data))
+    } catch (error) {
+      console.error(error)
     }
+  }
 }
 
 //reducer
@@ -50,7 +65,7 @@ export default function cartReducer(state = initialState, action) {
         case GET_CART:
             return action.cart;
         case ADD_PRODUCT:
-            return action.updatedOrder
+            return {...state, order:action.updatedOrder}
         default:
             return state
     }

@@ -1,14 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
+import { addProductThunk } from "../redux/cart";
 import { fetchSingleProduct } from "../redux/singleProduct";
-import { Link } from "react-router-dom";
 import UpdateProduct from "./UpdateProduct";
 class SingleProduct extends React.Component {
+    constructor(){
+        super()
+    }
     componentDidMount() {
         this.props.loadSingleProduct(this.props.match.params.productId)
     }
+  
+
     render() {
+        console.log('this.props SingleProduct:',this.props)
         const singleProduct = this.props.singleProduct
+        console.log(' SingleProduct:',singleProduct)
         return (
 
 
@@ -26,7 +33,7 @@ class SingleProduct extends React.Component {
 
                         <div className="control">
 
-                            <button className="btn">
+                            <button className="btn" onClick={()=>this.props.addProduct(singleProduct)}>
                                 <span className="price">${singleProduct.price}</span>
                                 <span className="shopping-cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i></span>
                                 <span className="buy">Get now</span>
@@ -43,15 +50,7 @@ class SingleProduct extends React.Component {
 
 
                 </div>
-                {/* <Link to={`/products/${singleProduct.id}/updateProduct`} className="link"> */}
-              {/* <button
-                type="button"
-                className="updateProduct btn btn-primary btn-block"
-
-              >
-                Edit product
-              </button> */}
-             {/* </Link> */}
+               
              <UpdateProduct/>
             </div>
 
@@ -66,7 +65,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadSingleProduct: (id) => dispatch(fetchSingleProduct(id))
+        loadSingleProduct: (id) => dispatch(fetchSingleProduct(id)),
+        addProduct:(productId, orderId, productPrice) => dispatch(addProductThunk(productId, orderId, productPrice))
     }
 }
 
