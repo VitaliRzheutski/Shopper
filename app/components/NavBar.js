@@ -6,32 +6,43 @@ import { logOutThunk } from "../redux/user";
 class Navbar extends React.Component {
 
   render() {
-    // console.log('this.props from NavBar:', this.props)
+    console.log('this.props from NavBar:', this.props)
+    const isAdmin = this.props.user.isAdmin;
     return (
       <nav>
-        <div id="navbar" className="row1">
+        <div id="" className="">
           {this.props.isLogggedIn ? (
             <div id="navbar">
-              {/* The navbar will show these links after you log in */}
-              <Link to="/">
-                <p className="section-title">Home page</p>
-              </Link>
-              <Link to="/products">
-                <p className="section-title">View all products</p>
-              </Link>
-              <Link to="/cart">
-                <p className="section-title">Cart</p>
-              </Link>
-              <Link to="/users">
-                <p className="section-title">ViewUsers</p>
-              </Link>
 
-              <a href="/" onClick={this.props.handleClick}>
-                Logout
-              </a>
+              <div className="left-side" >
+                {/* The navbar will show these links after you log in */}
+                <Link to="/">
+                  <p className="section-title">Home page</p>
+                </Link>
+                <Link to="/products">
+                  <p className="section-title">View all products</p>
+                </Link>
+                {!!isAdmin && (
+                  <Link to="/users">
+                    <p className="section-title">ViewUsers</p>
+                  </Link>
+                )}
+              </div>
+
+
+              <div className="right-side" >
+                <Link to="/cart">
+                  <p className="section-title">Cart</p>
+                </Link>
+
+                <a href="/" onClick={this.props.handleClick}>
+                  Logout
+                </a>
+              </div>
+
             </div>
           ) : (
-            <div id="navbar">
+            <div className="loginSignUp" >
               {/* The navbar will show these links before you log in */}
 
 
@@ -42,12 +53,6 @@ class Navbar extends React.Component {
               <Link to="/signup">
                 <p className="section-title">Signup</p>
               </Link>
-
-              <Link to="/cart">
-                <p className="section-title">Cart</p>
-              </Link>
-
-
             </div>
 
           )}
@@ -61,7 +66,8 @@ class Navbar extends React.Component {
 };
 const mapStateToProps = (state) => {
   return {
-    isLogggedIn: !!state.user.id
+    isLogggedIn: !!state.user.id,
+    user: state.user
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -71,17 +77,4 @@ const mapDispatchToProps = (dispatch) => {
     }
   }
 }
-// const mapDispatchToProps = (dispatch,ownProps)=>{
-//   const history = ownProps.history;
-//   return{
-//     async handleClick(){
-//       try{
-//         await dispatch(logOutThunk());
-//         ownProps.history.push("/")
-//       }catch(error){
-//         console.log(error)
-//       }
-//     }
-//   }
-// }
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

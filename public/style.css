@@ -15,7 +15,7 @@ nav {
   align-items: center;
   background-color: #333333;
   color: #c0c0c0;
-  display: flex;
+  /* display: flex; */
   height: 80px;
   padding: 10px;
 }
@@ -48,9 +48,19 @@ form{
 }
 #navbar{
   display: flex;
+  justify-content: space-between;
+
 }
 #navbar a{
   text-decoration: none; 
+}
+.left-side{
+	display: flex;
+	justify-content: space-between;
+}
+.right-side{
+	display: flex;
+	justify-content: space-between;
 }
 .section-title{
   margin-right: 25px;
@@ -278,4 +288,7 @@ font-family: 'EB Garamond', serif;
 	width:25%;
 	border-top:1px solid gray;
 	margin: auto auto;
+}
+.loginSignUp{
+	display: flex;
 }
