@@ -10,7 +10,6 @@ class Navbar extends React.Component {
     const isAdmin = this.props.user.isAdmin;
     return (
       <nav>
-        <div id="" className="">
           {this.props.isLogggedIn ? (
             <div id="navbar">
 
@@ -39,7 +38,6 @@ class Navbar extends React.Component {
                   Logout
                 </a>
               </div>
-
             </div>
           ) : (
             <div className="loginSignUp" >
@@ -56,8 +54,6 @@ class Navbar extends React.Component {
             </div>
 
           )}
-
-        </div>
       </nav>
 
     );

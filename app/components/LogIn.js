@@ -9,6 +9,9 @@ import { loginThunk } from '../redux/user'
 
   return (
     <div>
+      
+        <p>Welcome to our store! To continue please Login..</p>
+      
       <form onSubmit={handleSubmit} >
         <div>
           <label htmlFor="email">
