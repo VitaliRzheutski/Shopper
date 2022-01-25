@@ -5,7 +5,8 @@ import { fetchSingleProduct } from './singleProduct';
 const GET_PRODUCTS = 'GET_PRODUCTS';
 const ADD_PRODUCT = 'ADD_PRODUCT';
 const DELETE_PRODUCT = 'DELETE_PRODUCT';
-const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+// const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+const initialState = [];
 
 //ation creator
 export const getProducts = (products) =>{
@@ -26,20 +27,21 @@ export const deleteProduct = (id) =>{
         id
     }
 }
-export const updateProduct = (product) =>{
-    return{
-        type:UPDATE_PRODUCT,
-        productName:product.productName,
-        description: product.description,
-        price:product.price,
-        quantity: product.quantity
-    }
-}
+// export const updateProduct = (product) =>{
+//     return{
+//         type:UPDATE_PRODUCT,
+//         productName:product.productName,
+//         description: product.description,
+//         price:product.price,
+//         quantity: product.quantity
+//     }
+// }
 
 export const fetchProductsThunk = () =>{
     //thunk
     return async(dispatch) =>{
         try{
+            console.log('inside get thunk')
             const {data} = await axios.get('/api/products');
             dispatch(getProducts(data))
            
@@ -62,27 +64,27 @@ export const addProductThunk = (product) =>{
 export const deleteProductThunk = (id) =>{
     return async(dispatch)=>{
         try{
-            await axios.delete(`/api/products/${id}`)
+            await axios.delete(`/api/products/${id}`);
+            console.log('worked delete')
             dispatch(deleteProduct(id))
         }catch(error){
             console.log(error)
         }
     }
 }
-export const updateProductThunk = (id,productName,description,price,quantity) =>{
-    return async(dispatch) =>{
-        try{
-            const {data} = await axios.put(`/api/products/${id}`,productName,description,price,quantity);
-            console.log('data form updateTHunk:',data)
-            dispatch(updateProduct(data))
-            dispatch(fetchSingleProduct(id))
-        }catch(error){
-            console.log(error)
-        }
-    }
-}
+// export const updateProductThunk = (id,productName,description,price,quantity) =>{
+//     return async(dispatch) =>{
+//         try{
+//             const {data} = await axios.put(`/api/products/${id}`,productName,description,price,quantity);
+//             console.log('data form updateTHunk:',data)
+//             dispatch(updateProduct(data))
+//             dispatch(fetchSingleProduct(id))
+//         }catch(error){
+//             console.log(error)
+//         }
+//     }
+// }
 
-const initialState = [];
 
 //reducer
 export default function productsReducer(state = initialState,action){
@@ -92,15 +94,15 @@ export default function productsReducer(state = initialState,action){
         case ADD_PRODUCT:
             return [...state,action.product]
         case DELETE_PRODUCT:
-            return state.filter((product)=>product.id !== action.id)
-        case UPDATE_PRODUCT:
-            return{
-                ...state,
-                productName:action.name,
-                description:action.description,
-                price:action.price,
-                quantity:action.quantity
-            }
+            return state.filter((product) => product.id !== action.id)
+        // case UPDATE_PRODUCT:
+        //     return{
+        //         ...state,
+        //         productName:action.name,
+        //         description:action.description,
+        //         price:action.price,
+        //         quantity:action.quantity
+        //     }
     default:
         return state
     }

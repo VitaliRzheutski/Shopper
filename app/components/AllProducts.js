@@ -7,14 +7,16 @@ import { addProductThunk } from "../redux/products";
 
 
 export class AllProducts extends React.Component {
+  constructor(){
+    super()
+  }
   componentDidMount() {
     this.props.loadProducts()
   }
   render() {
-    console.log('props form AllProducts:', this.props)
     const isAdmin = this.props.user.isAdmin;
-    console.log('isAdmin:', isAdmin) //false
     const products = this.props.products;
+    console.log('products:', products)
     return (
       <div>
         <main>
@@ -31,14 +33,13 @@ export class AllProducts extends React.Component {
 
 
         <div className='allCards' >
-          {products.map((product) => (
-            // some problem
+          {products.map(product => (
+            product !== undefined ?
             <div className="singleCard" key={product.id}>
-              <Link to={`/products/${product.id}`} key={product.id} >
+              <Link to={`/products/${product.id}`} >
                 <img src={product.imageUrl} className="img-fluid rounded-start" alt="..." />
                 <p>ProductName: {product.productName}</p>
                 <p>Price:{product.price}</p>
-                {/* <p>---------------------------------</p> */}
               </Link>
               {!!isAdmin && (
                 <button
@@ -51,7 +52,9 @@ export class AllProducts extends React.Component {
               )}
 
             </div>
+            : null
           ))}
+        
         </div>
       </div>
     );

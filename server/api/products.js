@@ -15,7 +15,8 @@ const isAdminMiddleware = (req, res, next) => {
 //get all products
 router.get('/',async(req,res,next)=>{
     try{
-    const products =  await Product.findAll()
+    const products =  await Product.findAll();
+    console.log('get products',products)
     res.send(products)
     }catch(error){
         next(error)
@@ -48,7 +49,6 @@ router.put("/:id",isAdminMiddleware,async(req,res,next)=>{
                 id:req.params.id
             }
         })
-        console.log('update product!',updateProduct)
         if(!updateProduct) res.sendStatus(404);
         res.sendStatus(200)
     }catch(error){
