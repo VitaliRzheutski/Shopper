@@ -16,15 +16,14 @@ class Cart extends React.Component {
     }
     getProducts(productArray) {
         // console.log('productArray:', productArray)
-        console.log('props from Cart:', this.props)
+        console.log('productArray', productArray)
         return (
             <section className="pt-5 pb-5" >
                 <div className="container" >
                     <div className="row w-100">
                         <div className="col-lg-12 col-md-12 col-12">
                             <h3 className="display-5 mb-2 text-center">Shopping Cart</h3>
-                            <p className="mb-5 text-center">
-                                <i className="text-info font-weight-bold">{productArray.length}</i> items in your cart</p>
+                        
                             <table id="shoppingCart" className="table table-condensed table-responsive">
 
                                 <tbody>
@@ -57,6 +56,7 @@ class Cart extends React.Component {
                                                     </div>
                                                 </td>
                                             </tr>
+                                          
                                         )
                                     })}
                                 </tbody>
@@ -78,14 +78,22 @@ class Cart extends React.Component {
             return <div>You don't have any items in your cart yet!</div>
         } else {
             const products = this.props.order[0].products;
+            const sum = products.reduce((accum, curElement) => {
+                const quantity = curElement.orderDetail.quantity
+                return (accum = accum + quantity)
+              }, 0)
+        
             const priceSum = products.reduce((accum, curElement) => {
-                const price = curElement.orderDetail.productPrice
-                return accum + price
+                const price = curElement.orderDetail.productPrice;
+                const quantity = curElement.orderDetail.quantity;
+                return accum + (price * quantity)
             }, 0)
             // console.log('products:', products)
             return (
                 <div className="">
                     {this.getProducts(products)}
+                    Total order quantity: {sum}
+                <br />
                     <div className='pr'>Total order price: ${(priceSum).toFixed(2)}</div>
                 </div>
 
