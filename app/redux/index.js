@@ -11,7 +11,7 @@ const appReducer = combineReducers({
  product:singleProductReducer,
  user:reducerUser,
  cart:cartReducer,
- users:usersReducer
+ users:usersReducer,
 
 })
 

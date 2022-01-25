@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { deleteProductFromCartThunk, getCartThunk } from '../redux/cart'
+import { decreaseProductThunk, deleteProductFromCartThunk, getCartThunk, incrementCountThunk } from '../redux/cart'
 
 
 class Cart extends React.Component {
@@ -12,9 +12,8 @@ class Cart extends React.Component {
 
     componentDidMount() {
         this.props.loadCart()
+        // this.props.incrementProduct()
     }
-
-
     getProducts(productArray) {
         // console.log('productArray:', productArray)
         console.log('props from Cart:', this.props)
@@ -44,9 +43,12 @@ class Cart extends React.Component {
                                                     </div>
                                                 </td>
                                                 <td data-th="Price">Price:{product.price}</td>
-                                                <td data-th="Quantity">
-                                                    <input type="number" className="form-control form-control-lg text-center" defaultValue={'1'} />
+                                                <td>
+                                                    <button className='decrease' onClick={()=>this.props.decreaseProduct(product.id)}>-</button>
+                                                    <button className='increase' onClick={()=>this.props.incrementProduct(product.id)}>+</button>
                                                 </td>
+
+
                                                 <td className="actions" data-th="">
                                                     <div className="text-right">
                                                         <button className="btn btn-white border-secondary bg-white btn-md mb-2" onClick={() => { this.props.deleteProductFromCart(product.id) }}>
@@ -77,7 +79,7 @@ class Cart extends React.Component {
         } else {
             const products = this.props.order[0].products;
             const priceSum = products.reduce((accum, curElement) => {
-            const price = curElement.orderDetail.productPrice
+                const price = curElement.orderDetail.productPrice
                 return accum + price
             }, 0)
             // console.log('products:', products)
@@ -99,7 +101,9 @@ const mapSate = (state) => {
 const mapDispatch = (dispatch) => {
     return {
         loadCart: () => dispatch(getCartThunk()),
-        deleteProductFromCart: (productId) => dispatch(deleteProductFromCartThunk(productId))
+        deleteProductFromCart: (productId) => dispatch(deleteProductFromCartThunk(productId)),
+        decreaseProduct: (productId) => dispatch(decreaseProductThunk(productId)),
+        incrementProduct:(productId) =>dispatch(incrementCountThunk(productId))
     }
 }
 

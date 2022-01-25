@@ -9,6 +9,10 @@ const orderDetail = db.define('orderDetail', {
   },
   productPrice: {
     type: Sequelize.INTEGER
+  },
+  quantity: {
+    type: Sequelize.INTEGER,
+    defaultValue: 1
   }
 })
 orderDetail.addProduct = async function(productId, orderId, productPrice) {
