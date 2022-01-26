@@ -318,3 +318,10 @@ font-family: 'EB Garamond', serif;
 .card-body{
 	height: 730px;
 }
+.homePage{
+	text-align: center;
+	margin-top:50px;
+}
+#welcome{
+	margin-bottom: 70px;
+}

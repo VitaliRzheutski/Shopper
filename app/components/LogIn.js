@@ -23,7 +23,7 @@ const Login = props => {
                     </div>
                     <div className="form-outline form-dark mb-4">
                       <label className="form-label" htmlFor="typePasswordX">Password</label>
-                      <input name="password" type="password" className=" form-control-lg" />
+                      <input name="password" type="current-password" className=" form-control-lg" />
                     </div>
                     <div className='login'>
                       <button className=" btn-outline btn-lg px-5" type="submit">Login</button>

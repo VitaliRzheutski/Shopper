@@ -6,7 +6,7 @@ const SignUp = props => {
     const { handleSubmit } = props
     return (
         <section className="vh-100 gradient-custom">
-            <div className="container py-7 h-100" onSubmit={handleSubmit}>
+            <div className="container py-7 h-100" >
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-12 col-md-8 col-lg-6 col-xl-5">
                         <div className="card bg-grey text-dark" >
@@ -20,7 +20,7 @@ const SignUp = props => {
                                         </div>
                                         <div className="form-outline form-dark mb-4">
                                             <label className="form-label" htmlFor="typePasswordX">Password</label>
-                                            <input name="password" type="password" className=" form-control-lg" />
+                                            <input name="password" type="current-password" className=" form-control-lg" />
                                         </div>
                                         <div className="form-outline form-dark mb-4">
                                             <label className="form-label" htmlFor="typePasswordX">First name</label>
@@ -61,7 +61,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
                 const address = evt.target.address.value;
 
                 await dispatch(singUpUserThunk({ email, password, firstName, lastName, address }));
-                ownProps.history.push("/home");
+                ownProps.history.push("/newUser");//   '/home'
             } catch (error) {
                 console.error(error)
             }

@@ -41,6 +41,7 @@ class Routes extends React.Component {
         <Route path="/signup" component={SignUp} />
         <Route path="/products/:productId/updateProduct" component={UpdateProduct}/>
         <Route exact path="/users" component={ViewUsers} />
+        <Route exact path="/newUser" component={HomePage} />
         
               
               {isLoggedIn && (
