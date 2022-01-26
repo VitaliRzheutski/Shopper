@@ -304,3 +304,18 @@ font-family: 'EB Garamond', serif;
 	text-decoration: none;
 }
 
+.loginForm{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	border: none;
+}
+.sp{
+	text-decoration: none;
+	color: gray;
+}
+
+/* .gradient-custom {
+	background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  } */
