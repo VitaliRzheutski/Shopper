@@ -19,6 +19,10 @@ nav {
   padding-top: 10px;
 }
 
+#main{
+	width:80%;
+	margin:auto auto	
+}
 main {
   align-items: center;
   display: flex;
@@ -241,15 +245,32 @@ font-family: 'EB Garamond', serif;
 .product-image:hover img {transition: all 0.3s ease-out;}
 .product-image:hover img {transform: scale(1.2, 1.2);}
 
+
+
+
+.allCards{
+	display: flex;
+	flex-flow:row wrap;
+	position:relative
+	/* justify-content: space-between; */
+	
+  }
 .singleCard{
   width: 300px;
-  height: 400px;
+  height: 350px;
   margin-right: 20px;
+  margin-bottom: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 16px;
   text-align: center;
   background-color: #f1f1f1;
   border-radius: 5px;
+  /* flex: 0 1 calc(20% - 8px); */
+  flex:20%
+
+}
+.singleCard a{
+	text-decoration: none;
 }
 .singleCard:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -257,13 +278,18 @@ font-family: 'EB Garamond', serif;
 .singleCard img{
   width: 150px;
   height: 200px;
-  
 }
-.allCards{
-  display: flex;
-  justify-content: space-between;
-  
+#product-name-text{
+	margin-top: 10px;
+	margin-bottom: 5px;
 }
+#product-price-text{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+
 .updateStudent{
   margin-top: 200px;
   position: absolute;
@@ -324,4 +350,22 @@ font-family: 'EB Garamond', serif;
 }
 #welcome{
 	margin-bottom: 70px;
+}
+#container1{
+	text-align: center;
+}
+.name-pr{
+	display: flex;
+	flex-flow: column;
+	margin-bottom: 5px;
+}
+.createProduct{
+	/* background-color: #F8F8FF; */
+	background-color: #f1f1f1;
+	border:none;
+	border-radius: 5px;
+	height: 260px ;
+}
+.createProduct p{
+	margin-bottom: 5px;
 }

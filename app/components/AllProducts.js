@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 import AddProduct from "./AddProduct";
 import { addProductThunk } from "../redux/products";
 
-
 export class AllProducts extends React.Component {
-  constructor(){
+  constructor() {
     super()
   }
   componentDidMount() {
@@ -28,39 +27,34 @@ export class AllProducts extends React.Component {
               addNewProduct={this.props.addNewProduct} />
           </div>
         )}
-
-
-
-
         <div className='allCards' >
           {products.map(product => (
             product !== undefined ?
-            <div className="singleCard" key={product.id}>
-              <Link to={`/products/${product.id}`} >
-                <img src={product.imageUrl} className="img-fluid rounded-start" alt="..." />
-                <p>ProductName: {product.productName}</p>
-                <p>Price:{product.price}</p>
-              </Link>
-              {!!isAdmin && (
-                <button
-                  type="button"
-                  className="buttonDelete btn btn-danger"
-                  onClick={() => this.props.deleteProduct(product.id)}
-                >
-                  DELETE
-                </button>
-              )}
+              <div className="singleCard" key={product.id}>
+                <Link to={`/products/${product.id}`} >
+                  <img src={product.imageUrl} />
+                  <p id="product-name-text">ProductName: {product.productName}</p>
+                  <p id="product-price-text">Price:{product.price}</p>
+                </Link>
+                {!!isAdmin && (
+                  <button
+                    type="button"
+                    className="buttonDelete btn btn-danger"
+                    onClick={() => this.props.deleteProduct(product.id)}
+                  >
+                    DELETE
+                  </button>
+                )}
 
-            </div>
-            : null
+              </div>
+              : null
           ))}
-        
+
         </div>
       </div>
     );
   }
 }
-
 const mapState = (state) => {
   return {
     products: state.products,
@@ -69,7 +63,6 @@ const mapState = (state) => {
 
   };
 };
-
 const mapDispatch = (dispatch) => {
   return {
     loadProducts: () => dispatch(fetchProductsThunk()),
@@ -77,5 +70,4 @@ const mapDispatch = (dispatch) => {
     deleteProduct: (id) => dispatch(deleteProductThunk(id))
   };
 };
-
 export default connect(mapState, mapDispatch)(AllProducts);
