@@ -12,7 +12,6 @@ class Cart extends React.Component {
 
     componentDidMount() {
         this.props.loadCart()
-        // this.props.incrementProduct()
     }
     getProducts(productArray) {
         // console.log('productArray:', productArray)
@@ -22,7 +21,7 @@ class Cart extends React.Component {
                 <div className="container" >
                     <div className="row w-100">
                         <div className="col-lg-12 col-md-12 col-12">
-                            <h3 className="display-5 mb-2 text-center">Shopping Cart</h3>
+                            <h3>Shopping Cart</h3>
                         
                             <table id="shoppingCart" className="table table-condensed table-responsive">
 
@@ -41,16 +40,17 @@ class Cart extends React.Component {
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td data-th="Price">Price:{product.price}</td>
+                                                <td data-th="Price">Price: ${product.price}</td>
                                                 <td>
                                                     <button className='decrease' onClick={()=>this.props.decreaseProduct(product.id)}>-</button>
+                                                    {product.orderDetail.quantity}
                                                     <button className='increase' onClick={()=>this.props.incrementProduct(product.id)}>+</button>
                                                 </td>
 
 
                                                 <td className="actions" data-th="">
                                                     <div className="text-right">
-                                                        <button className="btn btn-white border-secondary bg-white btn-md mb-2" onClick={() => { this.props.deleteProductFromCart(product.id) }}>
+                                                        <button className=" btn btn-white border-secondary bg-white btn-md mb3 " onClick={() => { this.props.deleteProductFromCart(product.id) }}>
                                                             Remove
                                                         </button>
                                                     </div>
@@ -72,7 +72,7 @@ class Cart extends React.Component {
         )
     }
     render() {
-        const order = this.props.order //array with obj
+        const order = this.props.order;
 
         if (this.props.order[0] === undefined) {
             return <div>You don't have any items in your cart yet!</div>
@@ -90,11 +90,12 @@ class Cart extends React.Component {
             }, 0)
             // console.log('products:', products)
             return (
-                <div className="">
+                <div className="total-quantity">
                     {this.getProducts(products)}
-                    Total order quantity: {sum}
-                <br />
-                    <div className='pr'>Total order price: ${(priceSum).toFixed(2)}</div>
+                   <p>Total order quantity: {sum}</p> 
+                    <div className='pr'>
+                       <p> Total order price: ${(priceSum).toFixed(2)}</p>
+                        </div>
                 </div>
 
             )

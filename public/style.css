@@ -167,7 +167,7 @@ font-family: 'EB Garamond', serif;
 }
 .btn {
 
-	transform: translateY(0px);
+	/* transform: translateY(0px); */
 	transition: 0.3s linear;
 	/* background:  #809fff; */
 	border-radius: 5px;
@@ -177,13 +177,18 @@ font-family: 'EB Garamond', serif;
 	outline: none;
 	border: none;
 	color: #eee;
-	padding: 0;
+	padding: 2px;
 	margin: 0;
 	
 }
 
-.btn:hover{transform: translateY(-6px);
-	background: #1a66ff;}
+.btn:hover{
+	/* transform: translateY(-6px); */
+	background: #1a66ff;
+}
+
+
+
 
 .btn span {
 	font-family: 'Farsan', cursive;
@@ -279,6 +284,43 @@ font-family: 'EB Garamond', serif;
   width: 150px;
   height: 200px;
 }
+
+
+
+
+
+
+
+
+
+
+/* ----------------- */
+.allCardsUsers{
+	display: flex;
+	flex-direction: column;
+	position:relative
+	/* justify-content: space-between; */
+	
+  }
+/* .singleCardUsers{
+  width: 300px;
+  height: 100px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  flex:20%
+} */
+.singleCardUsers a{
+	text-decoration: none;
+}
+.singleCardUsers:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+/* //////////////// */
 #product-name-text{
 	margin-top: 10px;
 	margin-bottom: 5px;
@@ -310,9 +352,13 @@ font-family: 'EB Garamond', serif;
 }
 .pr{
 	text-align: center;
-	width:25%;
+	width:35%;
 	border-top:1px solid gray;
 	margin: auto auto;
+	
+}
+.pr p{
+	margin-top: 10px;
 }
 .loginSignUp{
 	display: flex;
@@ -368,4 +414,27 @@ font-family: 'EB Garamond', serif;
 }
 .createProduct p{
 	margin-bottom: 5px;
+}
+.decrease{
+	margin-right: 5px;
+	border-radius: 5px;
+	
+}
+.decrease:hover{
+	background: red;
+}
+.increase{
+	margin-left: 5px;
+	border-radius: 5px;
+}
+.increase:hover{
+	background-color: green;
+}
+.container h3{
+	text-align: center;
+	margin-bottom: 25px;
+}
+.total-quantity p{
+	text-align: center;
+	margin-bottom: 10px;
 }

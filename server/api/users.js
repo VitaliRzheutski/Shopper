@@ -1,5 +1,7 @@
 const router = require('express').Router()
 const User = require('../db/user');
+const { Order } = require('../db');
+ 
 
 const isAdminMiddleware = (req, res, next) => {
     if (!req.user.isAdmin) {
@@ -15,8 +17,12 @@ const isAdminMiddleware = (req, res, next) => {
 router.get('/',isAdminMiddleware,async(req,res,next)=>{
     try{
         const users = await User.findAll({
-             attributes: ['id', 'firstName', 'lastName', 'email']
-        });
+             attributes: ['id', 'firstName', 'lastName', 'email'],
+             include: {
+              model:Order
+            }
+        },
+       )
         // console.log('users:',users)
         res.json(users)
     }catch(error){
@@ -27,7 +33,6 @@ router.get('/',isAdminMiddleware,async(req,res,next)=>{
 router.get('/:id',isAdminMiddleware,async(req,res,next)=>{
     try{
         const user = await User.findByPk(req.params.id)
-        // console.log('user:',user)
         res.json(user)
     }catch(error){
         next(error)

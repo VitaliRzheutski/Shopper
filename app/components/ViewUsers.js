@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getCartThunk } from "../redux/cart";
 import { getAllUsersThunk } from "../redux/users";
 
 class ViewUsers extends React.Component {
@@ -9,19 +10,22 @@ class ViewUsers extends React.Component {
     render(){
         console.log('props from viewUsers',this.props)
         const users = this.props.users;
-        console.log('users:',users)
+        // console.log('users:',users)
        return(
-        //    <div>hey</div>
-        <div className='allCards' >
+        <div className='allCardsUsers' >
+            <p>List of users:</p>
+           <ol>
         {users.map((user) => (
-          <div className="singleCard" key={user.id}>
-              <p>First name: {user.firstName}</p>
-              <p>Last name: {user.lastName}</p>
-              <p>Email: {user.email}</p>
-           
+          <div className="singleCardUsers" key={user.id}>
+              <li>
+                  {user.firstName} {user.lastName}
+                    <p>{user.email}</p>
+              </li>
 
           </div>
         ))}
+        </ol>
+        <p>Total users: {users.length}</p>
       </div>
     ) 
     }
@@ -29,12 +33,12 @@ class ViewUsers extends React.Component {
 }
 const mapState = (state) =>{
     return{
-        users: state.users
+        users: state.users,
     }
 }
 const mapDispatch = (dispatch) =>{
     return{
-        loadAllUsers: ()=> dispatch(getAllUsersThunk())
+        loadAllUsers: ()=> dispatch(getAllUsersThunk()),
     }
 }
    
