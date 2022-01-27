@@ -7,6 +7,7 @@ class Navbar extends React.Component {
 
   render() {
     const isAdmin = this.props.user.isAdmin;
+    // console.log('props NAVBAR',this.props)
     return (
       <nav>
           {this.props.isLogggedIn ? (

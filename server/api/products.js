@@ -54,6 +54,8 @@ router.put("/:id",isAdminMiddleware,async(req,res,next)=>{
         next(error)
     }
 })
+
+
 //delete product - for admin only
 router.delete("/:id",isAdminMiddleware,async(req,res,next)=>{
     try{

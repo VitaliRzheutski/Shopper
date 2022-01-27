@@ -65,7 +65,6 @@ export const addProductThunk = (productId, orderId, productPrice) => {
             const { data } = await axios.post('/api/order',
                 { productId, orderId, productPrice }
             )
-            console.log('data from addProductThunk :', data)
             dispatch(addProduct(data))
         } catch (error) {
             console.error(error)
@@ -74,7 +73,6 @@ export const addProductThunk = (productId, orderId, productPrice) => {
 }
 export const deleteProductFromCartThunk = (productId) => {
     return async dispatch => {
-        console.log('productId:', productId)
         try {
             console.log('!!!')
             await axios.delete(`/api/order/delete/${productId}`);

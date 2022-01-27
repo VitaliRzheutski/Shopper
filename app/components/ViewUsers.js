@@ -12,11 +12,11 @@ class ViewUsers extends React.Component {
         const users = this.props.users;
         // console.log('users:',users)
        return(
-        <div className='allCardsUsers' >
+        <div className='' >
             <p>List of users:</p>
            <ol>
         {users.map((user) => (
-          <div className="singleCardUsers" key={user.id}>
+          <div className="" key={user.id}>
               <li>
                   {user.firstName} {user.lastName}
                     <p>{user.email}</p>

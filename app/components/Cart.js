@@ -15,7 +15,7 @@ class Cart extends React.Component {
     }
     getProducts(productArray) {
         // console.log('productArray:', productArray)
-        console.log('productArray', productArray)
+        // console.log('productArray', productArray)
         return (
             <section className="pt-5 pb-5" >
                 <div className="container" >
