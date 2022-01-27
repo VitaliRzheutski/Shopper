@@ -43,7 +43,8 @@ router.post('/', async (req, res, next) => {
         id: productId
       }
     })
-    console.log('product.quantity:', product.quantity)
+    // console.log('product.quantity:', product.quantity)
+    let q = product.quantity;
 
     const findOrderDetail = await orderDetail.findOne({
       where: {
@@ -51,28 +52,24 @@ router.post('/', async (req, res, next) => {
         productId: productId
       }
     })
-    // console.log('findOrderDetail:',findOrderDetail)
     if (findOrderDetail) {
       let newQuantity = findOrderDetail.quantity + 1;
-      // console.log('newQuantity:',newQuantity)
       findOrderDetail.update({ quantity: newQuantity })
-      product.quantity -= 1
-      console.log('product.quantity after1:', product.quantity)
-      
-      Product.update(product.quantity, {
-        where: {
-          quantity: product.quantity
-        }
+      q -= 1
+      // console.log('qafter1:', q)
+
+      await Product.update({ quantity: q }, {
+        where:
+          { id: productId }
       })
-
-    
-
     } else {
       await orderDetail.create({ productPrice, productId, orderId });
-      product.quantity -= 1
-      console.log('product.quantity after2:', product.quantity)
-      Product.update({ quantity: product.quantity })
-
+      q -= 1
+      // console.log('product.quantity after2:', q)
+      await Product.update({ quantity: q }, {
+        where:
+          { id: productId }
+      })
     }
     res.json(findOrder)
   } catch (error) {
@@ -101,6 +98,16 @@ router.delete('/delete/:productId', async (req, res, next) => {
 //this delete route decreases the amount of a product inside the cart
 router.put('/decrease/:productId', async (req, res, next) => {
   try {
+    const product = await Product.findOne({
+      where: {
+        id: req.params.productId
+      }
+    })
+    console.log('product.quantity!!!111:', product.quantity)
+    let q = product.quantity; 
+    //should finish  with updating db after increase$ decrease
+
+
     const oneProduct = await orderDetail.findOne({
       where: {
         productId: req.params.productId
@@ -108,9 +115,20 @@ router.put('/decrease/:productId', async (req, res, next) => {
     })
     let newQuantity = oneProduct.quantity - 1
     if (newQuantity >= 1) {
+
       await oneProduct.update({ quantity: newQuantity })
+      q += 1
+      await Product.update({ quantity: q }, {
+        where:
+          { id: req.params.productId }
+      })
+
     } else {
       await oneProduct.destroy()
+      await Product.update({ quantity: q }, {
+        where:
+          { id: req.params.productId }
+      })
     }
     res.send('deleted')
   } catch (error) {
@@ -120,16 +138,32 @@ router.put('/decrease/:productId', async (req, res, next) => {
 
 router.put('/increase/:productId', async (req, res, next) => {
   try {
+    const product = await Product.findOne({
+      where: {
+        id: req.params.productId
+      }
+    })
+
     const oneProduct = await orderDetail.findOne({
       where: {
         productId: req.params.productId
       }
     })
+    let q = product.quantity; 
     let newQuantity = oneProduct.quantity + 1;
     if (newQuantity >= 1) {
       await oneProduct.update({ quantity: newQuantity })
+      q -= 1
+        await Product.update({ quantity: q }, {
+          where:
+            { id: req.params.productId }
+        })
     } else {
       await oneProduct.update({ quantity: newQuantity })
+      await Product.update({ quantity: q }, {
+        where:
+          { id: req.params.productId }
+      })
     }
     res.send('+1 item')
   } catch (error) {
