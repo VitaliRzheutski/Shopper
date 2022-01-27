@@ -36,44 +36,52 @@ class UpdateProduct extends React.Component {
               <div id="container1">
                 <div id="navbar">Update Product:</div>
 
-                <form onSubmit={this.handleSubmit}>
-                  <label className="form-label" htmlFor="productName">Name:</label>
+                <form onSubmit={this.handleSubmit} className="createProduct">
+                  <div className="name-pr">
                   <input
                     type="text"
                     name="productName"
-                    className="form-control"
+                    className="form-control-sm"
                     value={this.state.productName}
                     onChange={this.handleChange}
+                    placeholder="Name"
                   />
+                  </div>
 
-                  <label htmlFor="description">Description:</label>
+                  <div className="name-pr"> 
                   <input
                     type="text"
                     name="description"
-                    className="form-control"
+                    className="form-control-sm"
                     value={this.state.description}
                     onChange={this.handleChange}
+                    placeholder="Description"
                   />
+                  </div>
 
-                    <label htmlFor="price">Price:</label>
+                  <div className="name-pr">
                   <input
                     type="text"
                     name="price"
-                    className="form-control"
+                    className="form-control-sm"
                     value={this.state.price}
                     onChange={this.handleChange}
+                    placeholder="Price"
                   />
+                  </div>
 
-                    <label htmlFor="quantity">Quantity:</label>
+                  <div className="name-pr">
                   <input
                     type="text"
                     name="quantity"
-                    className="form-control"
+                    className="form-control-sm"
                     value={this.state.quantity}
                     onChange={this.handleChange}
+                    placeholder="Quantity"
                   />
+                  </div>
 
-                  <button type="submit" id="createBtn" className="updateProductBut" >Update Product</button>
+                  <button type="submit" id="createBtn" className="btn btn-primary btn-block " >Update Product</button>
                 </form>
 
               </div>

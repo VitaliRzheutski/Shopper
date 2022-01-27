@@ -41,7 +41,6 @@ class AddProduct extends React.Component {
 
           <p>Create new Product:</p>
           <div className="name-pr">
-            {/* <label className="" >Name:</label> */}
             <input
               type="text"
               name="productName"
@@ -53,7 +52,6 @@ class AddProduct extends React.Component {
           </div>
 
           <div className="name-pr">
-            {/* <label htmlFor="price">Price:</label> */}
             <input
               type="text"
               name="price"
@@ -64,7 +62,6 @@ class AddProduct extends React.Component {
             />
           </div>
           <div className="name-pr">
-            {/* <label htmlFor="quantity">Quantity:</label> */}
             <input
               type="text"
               name="quantity"
@@ -75,7 +72,6 @@ class AddProduct extends React.Component {
             />
           </div>
           <div className="name-pr"> 
-            {/* <label htmlFor="description">Description:</label> */}
             <input
               type="text"
               name="description"
