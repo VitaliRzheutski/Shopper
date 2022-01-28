@@ -103,7 +103,6 @@ router.put('/decrease/:productId', async (req, res, next) => {
         id: req.params.productId
       }
     })
-    console.log('product.quantity!!!111:', product.quantity)
     let q = product.quantity; 
     //should finish  with updating db after increase$ decrease
 

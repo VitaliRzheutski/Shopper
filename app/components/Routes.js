@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 import SignUp from "./SignUp";
 import Cart from "./Cart";
 import ViewUsers from "./ViewUsers";
+import Checkout from "./CheckOut";
 
 
 
@@ -42,6 +43,7 @@ class Routes extends React.Component {
         <Route path="/products/:productId/updateProduct" component={UpdateProduct}/>
         <Route exact path="/users" component={ViewUsers} />
         <Route exact path="/newUser" component={HomePage} />
+        <Route exact path="/checkout" component={Checkout} />
         
               
               {isLoggedIn && (

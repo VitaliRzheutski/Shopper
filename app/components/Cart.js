@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { decreaseProductThunk, deleteProductFromCartThunk, getCartThunk, incrementCountThunk } from '../redux/cart'
+import { Link } from 'react-router-dom'
+
+
 
 
 class Cart extends React.Component {
@@ -9,20 +12,19 @@ class Cart extends React.Component {
 
         this.getProducts = this.getProducts.bind(this)
     }
-
     componentDidMount() {
         this.props.loadCart()
     }
+
     getProducts(productArray) {
-        // console.log('productArray:', productArray)
-        // console.log('productArray', productArray)
+        console.log('props from cart:', this.props)
         return (
             <section className="pt-5 pb-5" >
                 <div className="container" >
                     <div className="row w-100">
                         <div className="col-lg-12 col-md-12 col-12">
                             <h3>Shopping Cart</h3>
-                        
+
                             <table id="shoppingCart" className="table table-condensed table-responsive">
 
                                 <tbody>
@@ -42,11 +44,10 @@ class Cart extends React.Component {
                                                 </td>
                                                 <td data-th="Price">Price: ${product.price}</td>
                                                 <td>
-                                                    <button className='decrease' onClick={()=>this.props.decreaseProduct(product.id)}>-</button>
+                                                    <button className='decrease' onClick={() => this.props.decreaseProduct(product.id)}>-</button>
                                                     {product.orderDetail.quantity}
-                                                    <button className='increase' onClick={()=>this.props.incrementProduct(product.id)}>+</button>
+                                                    <button className='increase' onClick={() => this.props.incrementProduct(product.id)}>+</button>
                                                 </td>
-
 
                                                 <td className="actions" data-th="">
                                                     <div className="text-right">
@@ -56,7 +57,7 @@ class Cart extends React.Component {
                                                     </div>
                                                 </td>
                                             </tr>
-                                          
+
                                         )
                                     })}
                                 </tbody>
@@ -67,12 +68,11 @@ class Cart extends React.Component {
                     </div>
                 </div>
             </section>
-
-
         )
     }
     render() {
         const order = this.props.order;
+        console.log('order from cart:',order)
 
         if (this.props.order[0] === undefined) {
             return <div>You don't have any items in your cart yet!</div>
@@ -81,21 +81,24 @@ class Cart extends React.Component {
             const sum = products.reduce((accum, curElement) => {
                 const quantity = curElement.orderDetail.quantity
                 return (accum = accum + quantity)
-              }, 0)
-        
+            }, 0)
+
             const priceSum = products.reduce((accum, curElement) => {
                 const price = curElement.orderDetail.productPrice;
                 const quantity = curElement.orderDetail.quantity;
                 return accum + (price * quantity)
             }, 0)
-            // console.log('products:', products)
+            console.log('products:', products)
             return (
                 <div className="total-quantity">
                     {this.getProducts(products)}
-                   <p>Total order quantity: {sum}</p> 
+                    <p>Total order quantity: {sum}</p>
                     <div className='pr'>
-                       <p> Total order price: ${(priceSum).toFixed(2)}</p>
-                        </div>
+                        <p> Total order price: ${(priceSum).toFixed(2)}</p>
+                        <Link to="/checkout" >
+                            Chekout
+                        </Link>
+                    </div>
                 </div>
 
             )
@@ -112,7 +115,7 @@ const mapDispatch = (dispatch) => {
         loadCart: () => dispatch(getCartThunk()),
         deleteProductFromCart: (productId) => dispatch(deleteProductFromCartThunk(productId)),
         decreaseProduct: (productId) => dispatch(decreaseProductThunk(productId)),
-        incrementProduct:(productId) =>dispatch(incrementCountThunk(productId))
+        incrementProduct: (productId) => dispatch(incrementCountThunk(productId))
     }
 }
 
