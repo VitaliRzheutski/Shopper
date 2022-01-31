@@ -51,7 +51,7 @@ class Cart extends React.Component {
 
                                                 <td className="actions" data-th="">
                                                     <div className="text-right">
-                                                        <button className=" btn btn-white border-secondary bg-white btn-md mb3 " onClick={() => { this.props.deleteProductFromCart(product.id) }}>
+                                                        <button className=" btn btn-danger " onClick={() => { this.props.deleteProductFromCart(product.id) }}>
                                                             Remove
                                                         </button>
                                                     </div>
@@ -95,7 +95,7 @@ class Cart extends React.Component {
                     <p>Total order quantity: {sum}</p>
                     <div className='pr'>
                         <p> Total order price: ${(priceSum).toFixed(2)}</p>
-                        <Link to="/checkout" >
+                        <Link to="/checkout" className="buttonDelete btn btn-success" >
                             Chekout
                         </Link>
                     </div>

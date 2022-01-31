@@ -87,7 +87,8 @@ class Checkout extends React.Component {
 
                                 <div className="d-flex flex-row align-items-end mb-3">
                                     <h1 className="mb-0 yellow">${priceSum}</h1>
-                                </div> <span>Enjoy all the products after you complete the payment</span>
+                                </div> 
+                                <p id="textP">Enjoy all the products after you complete the payment</p>
                             </div>
                         </div>
                     </div>
