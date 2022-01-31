@@ -5,15 +5,17 @@ import { logOutThunk } from '../redux/user';
 
  const UserPage = (props) => {
     const {handleClick, user} = props
-  
     if(!user.id){
       return <Redirect to='/login' />
     }
+    
     return (
         <div className='homePage'>
         <h1 id="welcome">Welcome to Online Store!!!</h1>
           <h1>Welcome back {user.email}!</h1>
+         
         </div>
+        
     )
   }
 

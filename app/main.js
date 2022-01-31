@@ -7,6 +7,7 @@ import store from './store'
 import Routes from './components/Routes'
 import {Router} from 'react-router-dom'
 import history from './history'
+import 'bootstrap/dist/css/bootstrap.min.css'
 render(
   <Provider store={store}>
     <Router history = {history}>

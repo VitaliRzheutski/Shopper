@@ -1,19 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getCartThunk } from "../redux/cart";
+import Popup from "./PopUp";
 
 class Checkout extends React.Component {
     constructor(props) {
         super(props)
+    }
 
-    }   
-  
     render() {
 
         const order = this.props.order;
-        console.log('order checkout:',order)
-     
+        console.log('order checkout:', order)
+
         if (this.props.order[0] === undefined) {
             return <div>You don't have items to checout</div>
         } else {
@@ -29,8 +28,7 @@ class Checkout extends React.Component {
                 return accum + (price * quantity)
             }, 0)
             console.log('priceSum:', priceSum)
-         
-            
+
             return (
 
                 <div className="container mt-5 px-5">
@@ -73,41 +71,38 @@ class Checkout extends React.Component {
                                     </div>
                                 </div>
                             </div>
-    
-    
+
+
                             <div className="mt-4 mb-4 d-flex justify-content-between">
                                 <Link to="/cart">
                                     <span>Previous step</span>
                                 </Link>
-                                <button className="btn btn-success px-3">Pay</button> </div>
+                                <Popup />
+                                
+                            </div>
                         </div>
+
                         <div className="col-md-4">
                             <div className="card card-blue p-3 text-white mb-3"> <span>You have to pay</span>
-    
+
                                 <div className="d-flex flex-row align-items-end mb-3">
                                     <h1 className="mb-0 yellow">${priceSum}</h1>
-                                </div> <span>Enjoy all the productsafter you complete the payment</span>
+                                </div> <span>Enjoy all the products after you complete the payment</span>
                             </div>
                         </div>
                     </div>
+                   
+               
+                  
                 </div>
             )
 
-
-
-
-
         }
-        
-        
     }
-
-
-
 }
 const mapState = (state) => {
     return {
-        order:state.cart
+        order: state.cart
     }
 }
 
