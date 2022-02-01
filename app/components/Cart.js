@@ -43,6 +43,7 @@ class Cart extends React.Component {
                                                     </div>
                                                 </td>
                                                 <td className='col-md-1' data-th="Price">Price: ${product.price}</td>
+                                                
                                                 <td className='col-md-1'>
                                                     <button className='decrease' onClick={() => this.props.decreaseProduct(product.id)}>-</button>
                                                     {product.orderDetail.quantity}

@@ -99,7 +99,7 @@ async function seed() {
       productName: 'MacBook Pro 14" model ',
       description: 'The most powerful MacBook Pro ever is here. With the blazing-fast M1 Pro or M1 Max chip — the first Apple silicon designed for pros — you get groundbreaking performance and amazing battery life.',
       imageUrl:
-        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632788573000',
+        'https://tpc.ucf.edu/wp-content/uploads/sites/5/2019/05/mbp16-silver-select-202110.jpeg',
       price: 1999,
       quantity: 500
     },
@@ -123,7 +123,7 @@ async function seed() {
       productName: 'iMac 24" model',
       description: 'Say hello to the new iMac.Inspired by the best of Apple. Transformed by the M1 chip. Stands out in any space. Fits perfectly into your life.',
       imageUrl:
-        'https://www.apple.com/v/imac-24/d/images/specs/colors_blue__egmgwaytk3ue_large.jpg',
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/imac-24-silver-cto-hero-202104?wid=1254&hei=1132&fmt=jpeg&qlt=80&.v=1617479510000',
       price: 1799,
       quantity: 500
     },
@@ -147,7 +147,7 @@ async function seed() {
       productName: 'Mac Mini',
       description: 'The Apple M1 chip takes our most versatile, do-it-all desktop into another dimension. With up to 3x faster CPU performance. Up to 6x faster graphics. ',
       imageUrl:
-        'https://www.apple.com/v/mac-mini/n/images/meta/mac-mini_overview__164prubpwpee_og.jpg',
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-mac-mini-2020?wid=2000&hei=2000&fmt=jpeg&qlt=80&.v=1614364640000',
       price: 699,
       quantity: 500
     },
@@ -155,15 +155,15 @@ async function seed() {
       productName: 'AirPods Pro',
       description: 'Enjoy superior sound quality with Adaptive EQ, which automatically tunes music to the shape of your ear for a rich, consistent listening experience.',
       imageUrl:
-        'https://m.media-amazon.com/images/I/71NTi82uBEL._AC_SL1500_.jpg',
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MWP22?wid=2000&hei=2000&fmt=jpeg&qlt=95&.v=1591634795000',
       price: 249,
       quantity: 500
     },
     {
-      productName: 'AirPods 3red Generation',
+      productName: 'AirPods 3rd Generation',
       description: 'A great sense of detection. An enhanced skin-detect sensor knows the difference between your ear and other surfaces, so audio only plays when you are wearing AirPods.',
       imageUrl:
-        'https://m.media-amazon.com/images/I/61ZRU9gnbxL._AC_SX342_.jpg',
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MME73?wid=2000&hei=2000&fmt=jpeg&qlt=95&.v=1632861342000',
       price: 179,
       quantity: 500
     },

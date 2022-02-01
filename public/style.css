@@ -240,7 +240,7 @@ color: black;}
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .singleCard img{
-  width: 150px;
+  width: 180px;
   height: 200px;
 }
 
@@ -288,6 +288,7 @@ color: black;}
 	width:35%;
 	border-top:1px solid gray;
 	margin: auto auto;
+	margin-bottom: 30px;
 	
 }
 .pr p{
