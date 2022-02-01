@@ -2,7 +2,6 @@
   box-sizing: border-box;
   font-family: arial, sans-serif;
 }
-
 body {
   background: linear-gradient(#ffffff, #c0c0c0);
   height: 100%;
@@ -10,15 +9,12 @@ body {
   margin: 0;
   width: 100vw;
 }
-
 nav {
   align-items: center;
   background-color: #333333;
   color: #c0c0c0;
-  /* height: 80px; */
   padding-top: 10px;
 }
-
 #main{
 	width:80%;
 	margin:auto auto	
@@ -29,11 +25,9 @@ main {
   flex-direction: column;
   justify-content: center;
 }
-
 form{
   margin: auto  auto;
   margin-bottom: 25px ;
-   /* margin-top:50px; */
   width: 300px;
   height: 370px;
   border: 1px solid grey;
@@ -52,7 +46,6 @@ form{
 #navbar{
   display: flex;
   justify-content: space-between;
-
 }
 #navbar a{
   text-decoration: none; 
@@ -78,28 +71,18 @@ img{
 
 
 body {
-/* background: #DFC2F2; */
-	/* background-image: linear-gradient( to right, #ffffb3,#ffe6e6); */
 	background-attachment: fixed;	
 	background-size: cover;
-  
 	}
-
 #container{
 	box-shadow: 0 15px 30px 1px grey;
-	/* background: rgba(255, 255, 255, 0.90); */
 	text-align: center;
 	border-radius: 5px;
 	overflow: hidden;
 	margin: 5em auto;
-	height: 350px;
-	width: 700px;
-  
-	
+	height: 550px;
+	width: 900px;
 }
-
-
-
 .product-details {
 	position: relative;
 	text-align: left;
@@ -110,7 +93,6 @@ body {
 	width: 40%;
 
 }
-
 #container .product-details h1{
 	font-family: 'Bebas Neue', cursive;
 	display: inline-block;
@@ -120,7 +102,6 @@ body {
 	margin: 0;
 	
 }
-
 #container .product-details h1:before{
 	position: absolute;
 	content: '';
@@ -136,22 +117,13 @@ body {
 	/* color: white; */
 	margin: 0;
 	animation: chan-sh 6s ease infinite;
-
 }
-
-
-
-	
-
-
 .hint-star {
 	display: inline-block;
 	margin-left: 0.5em;
 	color: gold;
 	width: 50%;
 }
-
-
 #container .product-details > p {
 font-family: 'EB Garamond', serif;
 	text-align: center;
@@ -166,10 +138,7 @@ font-family: 'EB Garamond', serif;
 	
 }
 .btn {
-
-	/* transform: translateY(0px); */
 	transition: 0.3s linear;
-	/* background:  #809fff; */
 	border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -183,13 +152,8 @@ font-family: 'EB Garamond', serif;
 }
 
 .btn:hover{
-	/* transform: translateY(-6px); */
 	background: #1a66ff;
 }
-
-
-
-
 .btn span {
 	font-family: 'Farsan', cursive;
 	transition: transform 0.3s;
@@ -218,7 +182,8 @@ font-family: 'EB Garamond', serif;
   top: 0;
 }
 
-.btn .buy {z-index: 3; font-weight: bolder;}
+.btn .buy {z-index: 3; font-weight: bolder;
+color: black;}
 
 .btn:hover .price {transform: translateX(-110%);}
 
@@ -250,15 +215,10 @@ font-family: 'EB Garamond', serif;
 .product-image:hover img {transition: all 0.3s ease-out;}
 .product-image:hover img {transform: scale(1.2, 1.2);}
 
-
-
-
 .allCards{
 	display: flex;
 	flex-flow:row wrap;
 	position:relative
-	/* justify-content: space-between; */
-	
   }
 .singleCard{
   width: 300px;
@@ -270,7 +230,6 @@ font-family: 'EB Garamond', serif;
   text-align: center;
   background-color: #f1f1f1;
   border-radius: 5px;
-  /* flex: 0 1 calc(20% - 8px); */
   flex:20%
 
 }
@@ -285,35 +244,12 @@ font-family: 'EB Garamond', serif;
   height: 200px;
 }
 
-
-
-
-
-
-
-
-
-
 /* ----------------- */
 .allCardsUsers{
 	display: flex;
 	flex-direction: column;
 	position:relative
-	/* justify-content: space-between; */
-	
   }
-/* .singleCardUsers{
-  width: 300px;
-  height: 100px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  flex:20%
-} */
 .singleCardUsers a{
 	text-decoration: none;
 }
@@ -329,9 +265,6 @@ font-family: 'EB Garamond', serif;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-
-
-
 .updateStudent{
   margin-top: 200px;
   position: absolute;
@@ -406,7 +339,6 @@ font-family: 'EB Garamond', serif;
 	margin-bottom: 5px;
 }
 .createProduct{
-	/* background-color: #F8F8FF; */
 	background-color: #f1f1f1;
 	border:none;
 	border-radius: 5px;
@@ -442,11 +374,6 @@ font-family: 'EB Garamond', serif;
 body {
     background-color: #eee
 }
-
-.container {
-    /* height: 100vh */
-}
-
 .card {
     border: none
 }
@@ -542,33 +469,37 @@ input::-webkit-inner-spin-button {
     color: #fdcc49
 }
 
-
 /* Checkout form */
 
-
 .popup{
-	/* position: fixed; */
 	top: 0;
 	left: 0;
 	width: 0;
 	height: 0;
 	background-color: rgba(0,0,0,0.2);
-	/* display: flex; */
-	/* justify-content: center; */
-	/* align-items: center; */
 }
 .popup-inner{
-	/* position: relative; */
 	padding: 60px;
 	width: 100%;
 	max-width: 640px;
 	background-color: #FFF;
 }
 .popup-inner .close-btn{
-	/* position: absolute; */
 	top: 16px;
 	right: 16px;
 }
-#textP{
-	color: black;
+.checkout{
+	text-decoration: none;
+	border: 1px solid black;
+	padding: 5px 5px;
+	border-radius: 5px;
+	color: white;
+	background-color: green;
+}
+
+.checkout:hover{
+	color: white;
+}
+.fa{
+	color: white;
 }

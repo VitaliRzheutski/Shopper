@@ -41,5 +41,4 @@ module.exports = {
   User,
   Order,
   orderDetail
-  
 }

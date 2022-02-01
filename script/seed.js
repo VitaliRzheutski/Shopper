@@ -52,29 +52,169 @@ async function seed() {
   ])
   const productData = [
     {
-      productName: 'Iphone',
-      description: 'Apple Iphone 13 Pro Max',
+      productName: 'Iphone 13 Pro',
+      description: 'iPhone 13 Pro takes a huge leap forward, bringing incredible speed to everything you do and dramatic new photo and video capabilities — all in two great sizes.',
       imageUrl:
-        'https://img.xfinitymobile.com/image/fetch/e_trim/w_420,h_420,c_fit,f_auto,q_auto,fl_lossy/https%3A%2F%2Fimg.xfinitymobile.com%2Fimage%2Fupload%2Fv1632144927%2Fclient%2Fcatalog%2Fdevices%2Fapple%2FiPhone_13_Pro_Max_Silver_PRI.png',
-      price: 1200,
+        'https://m.media-amazon.com/images/I/61jLiCovxVL.jpg',
+      price: 999,
       quantity: 1000
     },
     {
-      productName: 'Iphone',
-      description: 'Apple Iphone 13 Pro',
-      imageUrl:
-        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1631652954000',
-      price: 1100,
+      productName: 'Iphone 13 ',
+      description: 'A lightning fast chip. A leap in battery life. And all new photo and video capabilities. iPhone 13 lets you do things you never could before — in two great sizes',
+      imageUrl:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-blue-select-2021?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1629842712000',
+      price: 699,
       quantity: 4000
     },
     {
-      productName: 'MacBook Pro',
-      description: 'Apple MacBook Pro',
+      productName: 'Iphone 12 ',
+      description: 'A superpowerful chip. 5G speed. An advanced dual camera system. A Ceramic Shield front that is tougher than any smartphone glass. And a bright, beautiful OLED display.',
+      imageUrl:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-purple-select-2021?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1617130317000',
+      price: 599,
+      quantity: 4000
+    },
+    {
+      productName: 'Iphone SE ',
+      description: 'iPhone SE packs our powerful A13 Bionic chip into a popular design at our most affordable price. It is just what you have been waiting for.',
+      imageUrl:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-black-select-2020?wid=834&hei=1000&fmt=jpeg&qlt=95&.v=1586574260051',
+      price: 399,
+      quantity: 4000
+    },
+    {
+      productName: 'Iphone 11 ',
+      description: 'The iPhone 11 display has rounded corners that follow a beautiful curved design, and these corners are within a standard rectangle.',
+      imageUrl:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone11-green-select-2019?wid=834&hei=1000&fmt=jpeg&qlt=95&.v=1566956144838',
+      price: 499,
+      quantity: 4000
+    },
+    {
+      productName: 'MacBook Pro 13" model ',
+      description: 'The Apple M1 chip gives the 13 inch MacBook Pro speed and power beyond belief. With up to 2.8x CPU performance. Up to 5x the graphics speed. Our most advanced Neural Engine for up to 11x faster machine learning.',
       imageUrl:
-        'https://m.media-amazon.com/images/I/71gD8WdSlaL._AC_SL1500_.jpg',
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp-spacegray-select-202011_GEO_US?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632948875000',
       price: 1300,
       quantity: 500
-    }
+    },
+    {
+      productName: 'MacBook Pro 14" model ',
+      description: 'The most powerful MacBook Pro ever is here. With the blazing-fast M1 Pro or M1 Max chip — the first Apple silicon designed for pros — you get groundbreaking performance and amazing battery life.',
+      imageUrl:
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632788573000',
+      price: 1999,
+      quantity: 500
+    },
+    {
+      productName: 'MacBook Pro 16" model ',
+      description: 'The most powerful MacBook Pro ever is here. With the blazing-fast M1 Pro or M1 Max chip — the first Apple silicon designed for pros — you get groundbreaking performance and amazing battery life. Add to that a stunning Liquid Retina XDR display.',
+      imageUrl:
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/mbp14-spacegray-select-202110?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1632788573000',
+      price: 2499,
+      quantity: 500
+    },
+    {
+      productName: 'MacBook Air" ',
+      description: 'Our thinnest, lightest notebook, completely transformed by the Apple M1 chip. CPU speeds up to 3.5x faster. GPU speeds up to 5x faster.',
+      imageUrl:
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-201810?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000',
+      price: 999,
+      quantity: 500
+    },
+    {
+      productName: 'iMac 24" model',
+      description: 'Say hello to the new iMac.Inspired by the best of Apple. Transformed by the M1 chip. Stands out in any space. Fits perfectly into your life.',
+      imageUrl:
+        'https://www.apple.com/v/imac-24/d/images/specs/colors_blue__egmgwaytk3ue_large.jpg',
+      price: 1799,
+      quantity: 500
+    },
+    {
+      productName: 'iMac 27" model',
+      description: 'The 27 inch iMac is packed with powerful tools and apps that let you take any idea to the next level. Its superfast processors and graphics, massive memory.',
+      imageUrl:
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/imac-27-cto-hero-202008?wid=1254&hei=1044&fmt=jpeg&qlt=80&.v=1594932848000',
+      price: 1299,
+      quantity: 500
+    },
+    {
+      productName: 'Mac Pro',
+      description: 'Power to change everything. Say hello to a Mac that is extreme in every way. With the greatest performance, expansion, and configurability yet.',
+      imageUrl:
+        'https://images.macrumors.com/article-new/2019/06/2019-mac-pro-side-and-front-800x581.jpg',
+      price: 5999,
+      quantity: 500
+    },
+    {
+      productName: 'Mac Mini',
+      description: 'The Apple M1 chip takes our most versatile, do-it-all desktop into another dimension. With up to 3x faster CPU performance. Up to 6x faster graphics. ',
+      imageUrl:
+        'https://www.apple.com/v/mac-mini/n/images/meta/mac-mini_overview__164prubpwpee_og.jpg',
+      price: 699,
+      quantity: 500
+    },
+    {
+      productName: 'AirPods Pro',
+      description: 'Enjoy superior sound quality with Adaptive EQ, which automatically tunes music to the shape of your ear for a rich, consistent listening experience.',
+      imageUrl:
+        'https://m.media-amazon.com/images/I/71NTi82uBEL._AC_SL1500_.jpg',
+      price: 249,
+      quantity: 500
+    },
+    {
+      productName: 'AirPods 3red Generation',
+      description: 'A great sense of detection. An enhanced skin-detect sensor knows the difference between your ear and other surfaces, so audio only plays when you are wearing AirPods.',
+      imageUrl:
+        'https://m.media-amazon.com/images/I/61ZRU9gnbxL._AC_SX342_.jpg',
+      price: 179,
+      quantity: 500
+    },
+    {
+      productName: 'AirPods 2nd Generation',
+      description: 'With plenty of talk and listen time, voice-activated Siri access, and an available wireless charging case, AirPods deliver an incredible wireless headphone experience.',
+      imageUrl:
+        'https://i5.walmartimages.com/asr/ac793ff4-d3da-4cbe-beba-f956e7494490_1.5bae15688eb0aafd22a99d01a072f9db.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF',
+      price: 129,
+      quantity: 500
+    },
+    {
+      productName: 'AirPods Max',
+      description: 'Introducing AirPods Max — a perfect balance of exhilarating high-fidelity audio and the effortless magic of AirPods. The ultimate personal listening experience is here.',
+      imageUrl:
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/airpods-max-hero-select-202011_FMT_WHH?wid=607&hei=556&fmt=jpeg&qlt=80&.v=1633623988000',
+      price: 549,
+      quantity: 500
+    },
+    {
+      productName: 'Apple Watch Series 3',
+      description: 'The smart watch is an excellent portable device that goes with you everywhere. It is perfect for tracking workouts and checking messages when you cant get to your phone.',
+      imageUrl:
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/42-alu-silver-sport-white-nc-s3-grid?wid=540&hei=550&fmt=jpeg&qlt=80&.v=1594259786000',
+      price: 299,
+      quantity: 500
+    },
+    {
+      productName: 'Apple Watch  SE',
+      description: 'Powerful features to help keep you connected, active, healthy, and safe. Advanced sensors to track all the ways you move and to measure your favorite workouts.',
+      imageUrl:
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKUW3_VW_34FR+watch-44-alum-silver-nc-se_VW_34FR_WF_CO?wid=1400&hei=1400&trim=1,0&fmt=p-jpg&qlt=95&.v=1632171100000,1630708651000',
+      price: 349,
+      quantity: 500
+    },
+    {
+      productName: 'Apple Watch Series 7',
+      description: 'The larger display enhances the entire experience, making Apple Watch easier to use and read. Series 7 represents our biggest and brightest thinking yet.',
+      imageUrl:
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ML773_VW_34FR+watch-45-stainless-graphite-cell-7s_VW_34FR_WF_CO?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1630042305000%2C1631661901000',
+      price: 450,
+      quantity: 500
+    },
+    {
+      productName: 'Apple Watch Nike',
+      description: 'Apple Watch Nike with the Nike Run Club app is your ultimate running partner. The new Nike watch face moves with you. Guided Runs give you a coach that cheers you on. And that is just the start. ',
+      imageUrl:
+        'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ML893_VW_34FR+watch-45-alum-starlight-nc-nike7s_VW_34FR_WF_CO?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171390000%2C1631662263000',
+      price: 450,
+      quantity: 500
+    },
   ]
   const products = await Promise.all([
     Product.bulkCreate(productData, { validate: true })

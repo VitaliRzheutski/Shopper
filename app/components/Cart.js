@@ -36,14 +36,14 @@ class Cart extends React.Component {
                                                         <div className="col-md-3 text-left">
                                                             <img src={product.imageUrl} alt="" className="img-fluid d-none d-md-block rounded mb-2 shadow  " />
                                                         </div>
-                                                        <div className="col-md-9 text-left mt-sm-2">
+                                                        <div className="col-md-8 text-left mt-sm-2">
                                                             <h4>{product.productName}</h4>
                                                             <p className="font-weight-light">{product.description}</p>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td data-th="Price">Price: ${product.price}</td>
-                                                <td>
+                                                <td className='col-md-1' data-th="Price">Price: ${product.price}</td>
+                                                <td className='col-md-1'>
                                                     <button className='decrease' onClick={() => this.props.decreaseProduct(product.id)}>-</button>
                                                     {product.orderDetail.quantity}
                                                     <button className='increase' onClick={() => this.props.incrementProduct(product.id)}>+</button>
@@ -95,7 +95,7 @@ class Cart extends React.Component {
                     <p>Total order quantity: {sum}</p>
                     <div className='pr'>
                         <p> Total order price: ${(priceSum).toFixed(2)}</p>
-                        <Link to="/checkout" className="buttonDelete btn btn-success" >
+                        <Link to="/checkout" className="checkout" >
                             Chekout
                         </Link>
                     </div>

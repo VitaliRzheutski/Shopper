@@ -33,7 +33,7 @@ export class AllProducts extends React.Component {
               <div className="singleCard" key={product.id}>
                 <Link to={`/products/${product.id}`} >
                   <img src={product.imageUrl} />
-                  <p id="product-name-text">Product: {product.productName}</p>
+                  <p id="product-name-text"> {product.productName}</p>
                   <p id="product-price-text">Price: ${product.price}</p>
                 </Link>
                 {!!isAdmin && (

@@ -34,7 +34,7 @@ class UpdateProduct extends React.Component {
   render() {
     return (
       <div id="container1">
-        <div id="navbar">Update Product:</div>
+        <div id="updateprod">Update Product:</div>
 
         <form onSubmit={this.handleSubmit} className="createProduct">
           <div className="name-pr">

@@ -20,7 +20,6 @@ class SingleProduct extends React.Component {
         this.props.loadSingleProduct(this.props.match.params.productId)
     }
     render() {
-        // console.log('props from singleProduct:',this.props)
         console.log('STATTE:',this.state)
         const singleProduct = this.props.singleProduct
         const isAdmin = this.props.user.isAdmin
@@ -35,7 +34,7 @@ class SingleProduct extends React.Component {
                             <button className="btn" onClick={() => this.props.addProduct(singleProduct)}>
                                 <span className="price">${singleProduct.price}</span>
                                 <span className="shopping-cart"><i className="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                                <span className="buy">Get now</span>
+                                <span className="buy">Add to cart</span>
                             </button>
                         </div>
                     </div>
