@@ -39,6 +39,9 @@ const User = db.define("user", {
       password: {
         type: Sequelize.STRING
       },
+      googleId:{
+        type:Sequelize.STRING
+      }
 })
 
 module.exports = User
