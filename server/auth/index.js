@@ -11,7 +11,6 @@ const userNotFound = (next) => {
 };
 
 router.put("/login", async (req, res, next) => {
-  console.log("PUT WORKED", req.body);
   try {
     const user = await User.findOne({
       where: {

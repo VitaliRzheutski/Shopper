@@ -1,22 +1,26 @@
 const router = require("express").Router();
 const passport = require("passport");
 const { User } = require("../db");
+const {
+  GOOGLE_SECRET,
+  GOOGLE_CLIENT_ID,
+  GOOGLE_CALLBACK,
+} = require("../../secrets");
 
 module.exports = router;
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const googleConfig = {
-  clientID:
-    "1019437586628-lc18ec4nkto1bkddinfrou5reec5ed0k.apps.googleusercontent.com",
+  clientID: GOOGLE_CLIENT_ID,
 
-  clientSecret: "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",
-  callbackURL: "/auth/google/callback",
+  clientSecret: GOOGLE_SECRET,
+  callbackURL: GOOGLE_CALLBACK,
 };
 
 const strategy = new GoogleStrategy(
   googleConfig,
   async (token, refreshToken, profile, done) => {
     const email = profile.emails[0].value;
-    const firstName = profile.name.givenName || "foo";
+    const firstName = profile.name.givenName || "a";
     const lastName = profile.name.familyName;
     const password = "123";
     const info = {

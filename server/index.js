@@ -29,11 +29,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 // passport registration
 passport.serializeUser((user, done) => done(null, user.id));
-// passport.serializeUser(function (user, done) {
-//   console.log("user,", user);
-
-//   done(null, user.id);
-// });
 
 passport.deserializeUser(async (id, done) => {
   try {
