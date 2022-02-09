@@ -16,9 +16,9 @@ const Login = (props) => {
               <div className="card-body p-4 text-center">
                 <div className="mb-md-4 mt-md-3 pb-4">
                   <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-                  <p className="text-dark-50 mb-5">
+                  {/* <p className="text-dark-50 mb-5">
                     Please enter your login and password!
-                  </p>
+                  </p> */}
                   <form onSubmit={handleSubmit} className="loginForm">
                     <div className="form-outline form-white mb-4">
                       <label className="form-label" htmlFor="typeEmailX">
@@ -56,8 +56,8 @@ const Login = (props) => {
                     action="/auth/google"
                     className="googleLogin"
                   >
-                    <button type="submit" className="btn-outline btn-lg px-5">
-                      Login with Google
+                    <button type="submit" className="btnGoogle google">
+                      <i className="fa fa-google fa-fw "></i> Login with Google
                     </button>
                   </form>
                 </div>

@@ -7,31 +7,27 @@ import { addProductThunk } from "../redux/products";
 
 export class AllProducts extends React.Component {
   constructor() {
-    super()
+    super();
   }
   componentDidMount() {
-    this.props.loadProducts()
+    this.props.loadProducts();
   }
   render() {
     const isAdmin = this.props.user.isAdmin;
     const products = this.props.products;
-    console.log('products:', products)
+    console.log("products:", products);
     return (
       <div>
-        <main>
-          <h1>Welcome to view all Products:</h1>
-        </main>
         {!!isAdmin && (
           <div>
-            <AddProduct
-              addNewProduct={this.props.addNewProduct} />
+            <AddProduct addNewProduct={this.props.addNewProduct} />
           </div>
         )}
-        <div className='allCards' >
-          {products.map(product => (
-            product !== undefined ?
+        <div className="allCards">
+          {products.map((product) =>
+            product !== undefined ? (
               <div className="singleCard" key={product.id}>
-                <Link to={`/products/${product.id}`} >
+                <Link to={`/products/${product.id}`}>
                   <img src={product.imageUrl} />
                   <p id="product-name-text"> {product.productName}</p>
                   <p id="product-price-text">Price: ${product.price}</p>
@@ -45,11 +41,9 @@ export class AllProducts extends React.Component {
                     DELETE
                   </button>
                 )}
-
               </div>
-              : null
-          ))}
-
+            ) : null
+          )}
         </div>
       </div>
     );
@@ -58,16 +52,14 @@ export class AllProducts extends React.Component {
 const mapState = (state) => {
   return {
     products: state.products,
-    user: state.user
-
-
+    user: state.user,
   };
 };
 const mapDispatch = (dispatch) => {
   return {
     loadProducts: () => dispatch(fetchProductsThunk()),
     addNewProduct: (product) => dispatch(addProductThunk(product)),
-    deleteProduct: (id) => dispatch(deleteProductThunk(id))
+    deleteProduct: (id) => dispatch(deleteProductThunk(id)),
   };
 };
 export default connect(mapState, mapDispatch)(AllProducts);
