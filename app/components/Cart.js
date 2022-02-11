@@ -5,22 +5,36 @@ import {
   deleteProductFromCartThunk,
   getCartThunk,
   incrementCountThunk,
+  getRemovedOrderThunk,
 } from "../redux/cart";
 import { Link } from "react-router-dom";
 import ErrorPopup from "./ErrorPopup";
-
+// import renderEmptyCart from "./helper";
 class Cart extends React.Component {
   constructor(props) {
     super(props);
 
     this.getProducts = this.getProducts.bind(this);
+    this.renderEmptyCart = this.renderEmptyCart.bind(this);
   }
   componentDidMount() {
     this.props.loadCart();
   }
-
+  renderEmptyCart() {
+    // const updatedOrderData = this.props.getRemovedOrderThunk();
+    // console.log("updatedOrderData", updatedOrderData);
+    return (
+      <div className="noItems">
+        <div className="noItems">
+          <img src="https://www.waterpurifiercareindia.com/images/empty-cart.jpg"></img>
+        </div>
+        <Link className="checkout" to="/products">
+          View Products
+        </Link>
+      </div>
+    );
+  }
   getProducts(productArray) {
-    console.log("props from cart:", this.props);
     return (
       <section className="pt-5 pb-5">
         <div className="container">
@@ -106,12 +120,7 @@ class Cart extends React.Component {
     console.log("order from cart:", order);
 
     if (this.props.order[0] === undefined) {
-      return (
-        <img src="https://www.waterpurifiercareindia.com/images/empty-cart.jpg">
-          {/* <div className="emptyCart">
-          You don't have any items in your cart yet! */}
-        </img>
-      );
+      return this.renderEmptyCart();
     } else {
       const products = this.props.order[0].products;
       const sum = products.reduce((accum, curElement) => {
@@ -124,7 +133,6 @@ class Cart extends React.Component {
         const quantity = curElement.orderDetail.quantity;
         return accum + price * quantity;
       }, 0);
-      console.log("products:", products);
       return (
         <div className="total-quantity">
           {this.getProducts(products)}
@@ -152,6 +160,7 @@ const mapDispatch = (dispatch) => {
       dispatch(deleteProductFromCartThunk(productId)),
     decreaseProduct: (productId) => dispatch(decreaseProductThunk(productId)),
     incrementProduct: (productId) => dispatch(incrementCountThunk(productId)),
+    getRemovedOrder: () => dispatch(getRemovedOrderThunk()),
   };
 };
 

@@ -3,7 +3,7 @@
   font-family: arial, sans-serif;
 }
 body {
-  background: linear-gradient(#ffffff, #c0c0c0);
+  /* background: linear-gradient(#ffffff, #c0c0c0); */
   height: 100%;
   padding: 0;
   margin: 0;
@@ -48,6 +48,12 @@ form {
   justify-content: space-between;
 }
 #navbar a {
+  color: grey;
+  text-decoration: none;
+}
+.
+#navbar a:hover {
+  color: white;
   text-decoration: none;
 }
 .left-side {
@@ -307,6 +313,13 @@ body {
 .loginSignUp {
   display: flex;
 }
+.loginSignUp a{
+  color:grey;
+}
+.loginSignUp a:hover{
+  color:white;
+}
+
 .loginSignUp :first-child {
   margin-left: 20px;
 }
@@ -389,9 +402,9 @@ body {
   margin-bottom: 10px;
 }
 /* Checkout form */
-body {
+/* body {
   background-color: #eee;
-}
+} */
 .card {
   border: none;
 }
@@ -556,3 +569,11 @@ input::-webkit-inner-spin-button {
 .emptyCart {
   background-image: "https://www.no-fea.com/front/images/empty-cart.png";
 }
+.noItems img {
+  height: 350px;
+  width: 750px;
+}
+.noItems {
+  text-align: center;
+}
+/* .main-nav-
