@@ -5,11 +5,9 @@ module.exports = router;
 //gets the cart
 router.get("/", async (req, res, next) => {
   try {
-    // console.log('req.user:',req.user)
     const findOrder = await Order.findAll({
       where: {
         userId: req.user.id,
-        // isPurchased: true
       },
       include: {
         model: Product,
@@ -55,7 +53,6 @@ router.post("/", async (req, res, next) => {
         id: productId,
       },
     });
-    // console.log('product.quantity:', product.quantity)
     let q = product.quantity;
 
     const findOrderDetail = await orderDetail.findOne({
@@ -68,7 +65,6 @@ router.post("/", async (req, res, next) => {
       let newQuantity = findOrderDetail.quantity + 1;
       findOrderDetail.update({ quantity: newQuantity });
       q -= 1;
-      // console.log('qafter1:', q)
 
       await Product.update(
         { quantity: q },
@@ -79,7 +75,6 @@ router.post("/", async (req, res, next) => {
     } else {
       await orderDetail.create({ productPrice, productId, orderId });
       q -= 1;
-      // console.log('product.quantity after2:', q)
       await Product.update(
         { quantity: q },
         {
@@ -95,7 +90,6 @@ router.post("/", async (req, res, next) => {
 
 router.delete("/delete/:productId", async (req, res, next) => {
   try {
-    console.log("req body", req.body);
     await orderDetail.destroy({
       where: {
         productId: req.params.productId,

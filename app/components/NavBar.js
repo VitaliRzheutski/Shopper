@@ -7,9 +7,8 @@ import { NavLink } from "react-router-dom";
 class Navbar extends React.Component {
   render() {
     const isAdmin = this.props.user.isAdmin;
-    // console.log('props NAVBAR',this.props)
     return (
-      <nav>
+      <nav className="NV">
         {this.props.isLogggedIn ? (
           <div id="navbar">
             <div className="left-side">

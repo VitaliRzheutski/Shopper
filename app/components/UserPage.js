@@ -8,7 +8,6 @@ const UserPage = (props) => {
   if (!user.id) {
     return <Redirect to="/login" />;
   }
-
   return (
     <div className="homePage">
       <h1 id="welcome">Welcome to TechStore</h1>

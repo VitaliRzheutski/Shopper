@@ -21,7 +21,6 @@ router.put("/login", async (req, res, next) => {
     if (user) {
       req.session.userId = user.id;
       req.login(user, (err) => (err ? next(err) : res.json(user)));
-      // res.json(user);
     } else {
       const err = new Error("Incorrect email or password!");
       err.status = 401;
@@ -56,15 +55,4 @@ router.delete("/logout", (req, res) => {
 
 router.get("/me", async (req, res, next) => {
   res.json(req.user || {});
-  // try {
-  //   if (!req.session.userId) {
-  //     userNotFound(next);
-  //   } else {
-  //     const user = await User.findByPk(req.session.userId);
-  //     // user ? res.json(user) : userNotFound(next);
-  //     res.json(req.user || {});
-  //   }
-  // } catch (err) {
-  //   next(err);
-  // }
 });

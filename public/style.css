@@ -3,7 +3,6 @@
   font-family: arial, sans-serif;
 }
 body {
-  /* background: linear-gradient(#ffffff, #c0c0c0); */
   height: 100%;
   padding: 0;
   margin: 0;
@@ -29,7 +28,6 @@ form {
   margin: auto auto;
   margin-bottom: 25px;
   width: 300px;
-  /* height: 370px; */
   border: 1px solid grey;
   border-radius: 15px;
   padding: 10px 10px;
@@ -51,7 +49,7 @@ form {
   color: grey;
   text-decoration: none;
 }
-.
+
 #navbar a:hover {
   color: white;
   text-decoration: none;
@@ -112,11 +110,9 @@ body {
   transform: translate(25px, -15px);
   font-family: "Bree Serif", serif;
   display: inline-block;
-  /* background: #ffe6e6; */
   border-radius: 5px;
   font-size: 14px;
   padding: 5px;
-  /* color: white; */
   margin: 0;
   animation: chan-sh 6s ease infinite;
 }
@@ -313,11 +309,11 @@ body {
 .loginSignUp {
   display: flex;
 }
-.loginSignUp a{
-  color:grey;
+.loginSignUp a {
+  color: grey;
 }
-.loginSignUp a:hover{
-  color:white;
+.loginSignUp a:hover {
+  color: white;
 }
 
 .loginSignUp :first-child {
@@ -340,13 +336,6 @@ body {
   text-align: center;
   border: none;
 }
-/* .loginForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  border: none;
-} */
 .sp {
   text-decoration: none;
   color: gray;
@@ -402,9 +391,6 @@ body {
   margin-bottom: 10px;
 }
 /* Checkout form */
-/* body {
-  background-color: #eee;
-} */
 .card {
   border: none;
 }
@@ -553,7 +539,7 @@ input::-webkit-inner-spin-button {
   display: inline-block;
   font-size: 17px;
   line-height: 20px;
-  text-decoration: none; /* remove underline from anchors */
+  text-decoration: none;
 }
 .vh-100 {
   height: 85vh !important;
@@ -576,4 +562,3 @@ input::-webkit-inner-spin-button {
 .noItems {
   text-align: center;
 }
-/* .main-nav-

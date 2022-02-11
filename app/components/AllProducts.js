@@ -15,7 +15,6 @@ export class AllProducts extends React.Component {
   render() {
     const isAdmin = this.props.user.isAdmin;
     const products = this.props.products;
-    console.log("products:", products);
     return (
       <div>
         {!!isAdmin && (

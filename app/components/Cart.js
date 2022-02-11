@@ -8,12 +8,9 @@ import {
   getRemovedOrderThunk,
 } from "../redux/cart";
 import { Link } from "react-router-dom";
-import ErrorPopup from "./ErrorPopup";
-// import renderEmptyCart from "./helper";
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-
     this.getProducts = this.getProducts.bind(this);
     this.renderEmptyCart = this.renderEmptyCart.bind(this);
   }
@@ -21,8 +18,6 @@ class Cart extends React.Component {
     this.props.loadCart();
   }
   renderEmptyCart() {
-    // const updatedOrderData = this.props.getRemovedOrderThunk();
-    // console.log("updatedOrderData", updatedOrderData);
     return (
       <div className="noItems">
         <div className="noItems">
@@ -41,7 +36,6 @@ class Cart extends React.Component {
           <div className="row w-100">
             <div className="col-lg-12 col-md-12 col-12">
               <h3>Shopping Cart</h3>
-
               <table
                 id="shoppingCart"
                 className="table table-condensed table-responsive"
@@ -70,7 +64,6 @@ class Cart extends React.Component {
                         <td className="col-md-1" data-th="Price">
                           Price: ${product.price}
                         </td>
-
                         <td className="col-md-1">
                           <button
                             className="decrease"
@@ -90,7 +83,6 @@ class Cart extends React.Component {
                             +
                           </button>
                         </td>
-
                         <td className="actions" data-th="">
                           <div className="text-right">
                             <button

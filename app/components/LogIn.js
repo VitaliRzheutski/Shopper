@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import { loginThunk } from "../redux/user";
 import { Link } from "react-router-dom";
-// import GoogleOath from './GoogleOath'
 
 const Login = (props) => {
   const { handleSubmit } = props;
@@ -16,9 +15,6 @@ const Login = (props) => {
               <div className="card-body p-4 text-center">
                 <div className="mb-md-4 mt-md-3 pb-4">
                   <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
-                  {/* <p className="text-dark-50 mb-5">
-                    Please enter your login and password!
-                  </p> */}
                   <form onSubmit={handleSubmit} className="loginForm">
                     <div className="form-outline form-white mb-4">
                       <label className="form-label" htmlFor="typeEmailX">
@@ -74,7 +70,6 @@ const Login = (props) => {
           </div>
         </div>
       </div>
-      {/* <GoogleOath /> */}
     </section>
   );
 };

@@ -1,3 +1,9 @@
-An e-commerce site selling apple products,
-virtual celebrations through 2020 and beyond. Built with NodeJS,
-React, Redux, Express, Sequelize, PostgreSQL. Including Bulma, Heroku, Mocha/Chai, Passport, Webpack.
+TechStore
+An e-commerce site selling Apple products.
+Friendly inteface and best deals. Built with NodeJS,
+React, Redux, Express, Sequelize, PostgreSQL. Including GooglOath, Passport, Webpack.
+Developer Vitali Rzheutski
+
+Start
+Running npm run start will make great things happen on port 1337!
+From there, just follow your bliss.

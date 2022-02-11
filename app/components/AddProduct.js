@@ -4,7 +4,7 @@ import { addProductThunk } from "../redux/products";
 
 class AddProduct extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       productName: "",
       description: "",
@@ -13,7 +13,6 @@ class AddProduct extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
   }
   handleSubmit(event) {
     event.preventDefault();
@@ -24,7 +23,6 @@ class AddProduct extends React.Component {
       price: "",
       quantity: "",
     });
-
   }
   // extract the current value from event.target.value, and set that value on state.
   handleChange(event) {
@@ -36,15 +34,14 @@ class AddProduct extends React.Component {
   render() {
     return (
       <div id="container1">
-
         <form onSubmit={this.handleSubmit} className="createProduct">
-
           <p>Create new Product:</p>
           <div className="name-pr">
             <input
               type="text"
               name="productName"
-              id="form5Example1" className="form-control-sm"
+              id="form5Example1"
+              className="form-control-sm"
               value={this.state.productName}
               onChange={this.handleChange}
               placeholder="Name"
@@ -71,7 +68,7 @@ class AddProduct extends React.Component {
               placeholder="Quantity"
             />
           </div>
-          <div className="name-pr"> 
+          <div className="name-pr">
             <input
               type="text"
               name="description"
@@ -82,12 +79,17 @@ class AddProduct extends React.Component {
             />
           </div>
 
-          <button type="submit" id="createBtn" className="btn btn-primary btn-block ">Create product</button>
+          <button
+            type="submit"
+            id="createBtn"
+            className="btn btn-primary btn-block "
+          >
+            Create product
+          </button>
         </form>
       </div>
     );
   }
 }
 
-
-export default connect(null, null)(AddProduct)
+export default connect(null, null)(AddProduct);
