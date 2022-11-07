@@ -1,7 +1,7 @@
 # TechStore
 
 An e-commerce site selling electronic devices.
-Friendly inteface and best deals. Built with NodeJS,
+Friendly interface and best deals. Built with NodeJS,
 React, Redux, Express, Sequelize, PostgreSQL. Including GoogleOath, Passport, Webpack.
 
 ## Developer
